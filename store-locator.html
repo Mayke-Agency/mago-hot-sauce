@@ -1,0 +1,278 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Store Locator | Mago Hot Sauce</title>
+    <meta
+      name="description"
+      content="Find Mago Hot Sauce near you and discover where to shop the spicy magic in stores."
+    />
+    <meta name="robots" content="index,follow" />
+    <link rel="canonical" href="https://www.magohotsauce.com/store-locator" />
+
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="Store Locator | Mago Hot Sauce" />
+    <meta
+      property="og:description"
+      content="Find Mago Hot Sauce near you and discover where to shop the spicy magic in stores."
+    />
+    <meta
+      property="og:url"
+      content="https://www.magohotsauce.com/store-locator"
+    />
+    <meta
+      property="og:image"
+      content="https://www.magohotsauce.com/assets/images/hero-home.jpg"
+    />
+
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="Store Locator | Mago Hot Sauce" />
+    <meta
+      name="twitter:description"
+      content="Find Mago Hot Sauce near you and discover where to shop the spicy magic in stores."
+    />
+    <meta
+      name="twitter:image"
+      content="https://www.magohotsauce.com/assets/images/hero-home.jpg"
+    />
+
+    <link rel="icon" href="favicon.ico" />
+    <link rel="stylesheet" href="assets/css/styles.css" />
+    <script>
+      window.MAGO_SHOPIFY_CONFIG = {
+        domain: "bsnbpg-vs.myshopify.com",
+        storefrontAccessToken: "024b75c18774047e62314a1bb3e8a924",
+        moneyFormat: "%24%7B%7Bamount%7D%7D",
+        products: {
+          "roasted-habanero-home": {
+            id: "10320010510468",
+            buttonText: "Add to Cart",
+          },
+          "pineapple-habanero-home": {
+            id: "10320011427972",
+            buttonText: "Add to Cart",
+          },
+          "ghost-pepper-home": {
+            id: "10320011591812",
+            buttonText: "Add to Cart",
+          },
+          "roasted-verde-home": {
+            id: "10320011886724",
+            buttonText: "Add to Cart",
+          },
+
+          "roasted-habanero-shop": {
+            id: "10320010510468",
+            buttonText: "Add to Cart",
+          },
+          "pineapple-habanero-shop": {
+            id: "10320011427972",
+            buttonText: "Add to Cart",
+          },
+          "ghost-pepper-shop": {
+            id: "10320011591812",
+            buttonText: "Add to Cart",
+          },
+          "roasted-verde-shop": {
+            id: "10320011886724",
+            buttonText: "Add to Cart",
+          },
+
+          "roasted-habanero-product": {
+            id: "10320010510468",
+            buttonText: "Add to Cart",
+          },
+          "pineapple-habanero-product": {
+            id: "10320011427972",
+            buttonText: "Add to Cart",
+          },
+          "ghost-pepper-product": {
+            id: "10320011591812",
+            buttonText: "Add to Cart",
+          },
+          "roasted-verde-product": {
+            id: "10320011886724",
+            buttonText: "Add to Cart",
+          },
+        },
+      };
+    </script>
+
+    <script src="https://sdks.shopifycdn.com/buy-button/latest/buy-button-storefront.min.js"></script>
+    <script src="assets/js/main.js" defer></script>
+  </head>
+  <body class="page page-store-locator">
+    <a class="skip-link" href="#main-content">Skip to content</a>
+
+    <header class="site-header" id="top">
+      <div class="container header-inner">
+        <a class="site-logo" href="/" aria-label="Mago Hot Sauce home">
+          <img
+            src="assets/images/mago-logo-black.svg"
+            alt="Mago Hot Sauce logo"
+            width="160"
+            height="56"
+          />
+        </a>
+
+        <nav class="site-nav" aria-label="Primary navigation">
+          <ul class="nav-list">
+            <li><a href="/about">About</a></li>
+            <li><a href="/shop">Shop</a></li>
+            <li>
+              <a href="/store-locator" aria-current="page">Store Locator</a>
+            </li>
+          </ul>
+        </nav>
+
+        <div class="header-cart">
+          <a
+            href="#"
+            class="js-open-cart"
+            aria-label="Open cart"
+            data-cart-empty-icon="assets/icons/shopping-cart-empty.svg"
+            data-cart-full-icon="assets/icons/shopping-cart.svg"
+          >
+            <img
+              class="js-cart-icon"
+              src="assets/icons/shopping-cart-empty.svg"
+              alt=""
+              width="28"
+              height="28"
+              aria-hidden="true"
+            />
+          </a>
+        </div>
+      </div>
+    </header>
+
+    <main id="main-content">
+      <section class="page-hero page-hero-compact">
+        <div class="container narrow-copy">
+          <p class="eyebrow">Store Locator</p>
+          <h1>Find Mago near you.</h1>
+          <p>
+            Search by city, ZIP code, or area to find stores carrying Mago Hot
+            Sauce.
+          </p>
+        </div>
+      </section>
+
+      <section
+        class="section locator-section"
+        aria-labelledby="locator-heading"
+      >
+        <div class="container">
+          <h2 id="locator-heading" class="sr-only">
+            Store locator search and map
+          </h2>
+
+          <div class="locator-layout">
+            <div class="locator-left">
+              <form
+                class="locator-search"
+                action="#"
+                method="get"
+                role="search"
+              >
+                <div class="locator-search-row">
+                  <input
+                    id="store-search"
+                    name="q"
+                    type="search"
+                    placeholder="Enter city, ZIP code, or neighborhood"
+                    autocomplete="postal-code"
+                  />
+                  <button class="btn btn-primary" type="submit">Search</button>
+                </div>
+              </form>
+
+              <div class="locator-results" aria-live="polite">
+                <h2>Retail Locations</h2>
+                <p>Find the spicy magic in person, or shop online anytime.</p>
+              </div>
+            </div>
+
+            <div class="locator-map">
+              <iframe
+                title="Map showing locations where Mago Hot Sauce can be found"
+                src="https://www.google.com/maps?q=Mago%20Hot%20Sauce&output=embed"
+                width="100%"
+                height="560"
+                style="border: 0"
+                loading="lazy"
+              ></iframe>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section
+        class="section final-cta full-bleed"
+        aria-labelledby="locator-cta-heading"
+      >
+        <div class="container final-cta-inner">
+          <p class="eyebrow">Prefer to shop online?</p>
+          <h2 id="locator-cta-heading">Ready for some spicy magic?</h2>
+          <p>Skip the search and grab your bottle online.</p>
+          <div class="final-cta-actions">
+            <a class="btn btn-primary" href="/shop">Shop Now</a>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <div class="container footer-inner">
+        <div class="footer-brand">
+          <a href="/" aria-label="Mago Hot Sauce home">
+            <img
+              src="assets/images/mago-logo-black.svg"
+              alt="Mago Hot Sauce logo"
+              width="140"
+              height="48"
+            />
+          </a>
+          <p>Spicy Magic from Mago Hot Sauce.</p>
+        </div>
+
+        <nav class="footer-nav" aria-label="Footer navigation">
+          <ul>
+            <li><a href="/about">About</a></li>
+            <li><a href="/shop">Shop</a></li>
+            <li>
+              <a href="/store-locator" aria-current="page">Store Locator</a>
+            </li>
+          </ul>
+        </nav>
+
+        <div class="footer-meta">
+          <p>
+            <a href="https://www.instagram.com/" rel="noopener noreferrer"
+              >Instagram</a
+            >
+          </p>
+          <p>&copy; 2026 Mago Hot Sauce. All rights reserved.</p>
+          <p class="footer-credit">
+            Website by
+            <a href="https://maykeagency.com" target="_blank" rel="noopener">
+              <img
+                src="/assets/images/maykeLogoDark.svg"
+                alt="Mayke Agency"
+                class="mayke-logo"
+              />
+            </a>
+          </p>
+        </div>
+      </div>
+    </footer>
+
+    <div
+      class="shopify-button-wrapper shopify-button-hidden"
+      data-shopify-product="roasted-habanero-shop"
+      data-shopify-button="buy"
+      aria-hidden="true"
+    ></div>
+  </body>
+</html>

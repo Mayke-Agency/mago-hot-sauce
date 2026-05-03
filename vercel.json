@@ -1,0 +1,19 @@
+{
+  "cleanUrls": true,
+  "rewrites": [
+    { "source": "/about", "destination": "/about.html" },
+    { "source": "/shop", "destination": "/shop.html" },
+    { "source": "/store-locator", "destination": "/store-locator.html" },
+
+    {
+      "source": "/shop/roasted-habanero",
+      "destination": "/roasted-habanero.html"
+    },
+    {
+      "source": "/shop/pineapple-habanero",
+      "destination": "/pineapple-habanero.html"
+    },
+    { "source": "/shop/ghost-pepper", "destination": "/ghost-pepper.html" },
+    { "source": "/shop/roasted-verde", "destination": "/roasted-verde.html" }
+  ]
+}
