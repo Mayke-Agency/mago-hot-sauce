@@ -691,42 +691,6 @@
     }
   }
 
-  const newsletterForm = document.getElementById("newsletter-form");
-
-  if (newsletterForm) {
-    newsletterForm.addEventListener("submit", async (e) => {
-      e.preventDefault();
-
-      const emailInput = document.getElementById("newsletter-email");
-      const message = document.getElementById("newsletter-message");
-
-      try {
-        const response = await fetch("/api/newsletter", {
-          method: "POST",
-          headers: {
-            "Content-Type": "application/json",
-          },
-          body: JSON.stringify({
-            email: emailInput.value,
-          }),
-        });
-
-        const data = await response.json();
-
-        if (data.success) {
-          message.textContent = "Thanks for subscribing!";
-          emailInput.value = "";
-        } else {
-          message.textContent = "Something went wrong.";
-          console.error(data);
-        }
-      } catch (error) {
-        console.error(error);
-        message.textContent = "Something went wrong.";
-      }
-    });
-  }
-
   function initNewsletterForm() {
     const newsletterForm = document.getElementById("newsletter-form");
     if (!newsletterForm) return;
@@ -751,7 +715,16 @@
           }),
         });
 
-        const data = await response.json();
+        const text = await response.text();
+
+        let data;
+        try {
+          data = JSON.parse(text);
+        } catch {
+          console.error("Non-JSON API response:", text);
+          message.textContent = "Server returned an error.";
+          return;
+        }
 
         if (!response.ok || !data.success) {
           console.error("Newsletter API error:", data);
