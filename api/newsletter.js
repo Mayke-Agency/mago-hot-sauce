@@ -6,10 +6,10 @@ export default async function handler(req, res) {
   }
 
   try {
-    const { email } = req.body || {};
+    const { name, email, company } = req.body || {};
 
-    if (!email) {
-      return res.status(400).json({ error: "Email required" });
+    if (company) {
+      return res.status(200).json({ success: true });
     }
 
     const store = process.env.SHOPIFY_STORE_DOMAIN;
@@ -73,6 +73,7 @@ export default async function handler(req, res) {
         },
         body: JSON.stringify({
           customer: {
+            first_name: name,
             email,
             tags: "newsletter",
             accepts_marketing: true,

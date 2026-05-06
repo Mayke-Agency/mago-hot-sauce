@@ -342,16 +342,25 @@
               <p class="eyebrow">Stay Spicy</p>
 
               <h2 id="newsletter-heading">
-                Get the spicy magic straight to your inbox.
+                We want to send you spicy messages.
               </h2>
 
               <p>
-                New drops, special releases, recipes, and everything happening
-                at Mago Hot Sauce.
+                New drops, special releases, exclusive offers, and more hot
+                stuff.
               </p>
             </div>
 
             <form class="newsletter-form" id="newsletter-form" novalidate>
+              <input
+                type="text"
+                id="newsletter-name"
+                name="name"
+                placeholder="Your name"
+                aria-label="Your name"
+                required
+              />
+
               <input
                 type="email"
                 id="newsletter-email"
@@ -361,7 +370,22 @@
                 required
               />
 
+              <input
+                type="text"
+                name="company"
+                id="newsletter-company"
+                class="newsletter-honey"
+                tabindex="-1"
+                autocomplete="off"
+                aria-hidden="true"
+              />
+
               <button type="submit" class="btn btn-primary">Subscribe</button>
+
+              <p class="newsletter-consent">
+                By subscribing, you agree to receive marketing emails from Mago
+                Hot Sauce. You can unsubscribe at any time.
+              </p>
 
               <p
                 id="newsletter-message"

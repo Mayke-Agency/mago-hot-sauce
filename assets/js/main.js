@@ -624,7 +624,10 @@
             Accept: "application/json",
           },
           body: JSON.stringify({
+            name:
+              document.getElementById("newsletter-name")?.value.trim() || "",
             email: emailInput.value.trim(),
+            company: document.getElementById("newsletter-company")?.value || "",
           }),
         });
 

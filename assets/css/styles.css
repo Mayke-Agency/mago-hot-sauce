@@ -1158,9 +1158,7 @@ body.cart-open .header-cart {
   margin-inline: auto;
 }
 
-/* =========================================
-   NEWSLETTER
-========================================= */
+/* Newsletter */
 
 .newsletter-section {
   padding-top: 0;
@@ -1173,17 +1171,15 @@ body.cart-open .header-cart {
   padding: clamp(2rem, 5vw, 4rem);
 
   display: grid;
-  grid-template-columns: 1fr auto;
-  gap: 2rem;
-  align-items: center;
+  grid-template-columns: minmax(0, 1fr) minmax(320px, 460px);
+  gap: 3rem;
+  align-items: start;
 }
 
 .newsletter-card::before {
   content: "";
-
   position: absolute;
   inset: 0;
-
   pointer-events: none;
 }
 
@@ -1201,17 +1197,22 @@ body.cart-open .header-cart {
   margin-bottom: 0;
 }
 
+/* Form */
+
 .newsletter-form {
   position: relative;
   z-index: 1;
 
   display: flex;
-  gap: 0.75rem;
-  align-items: center;
+  flex-direction: column;
+  align-items: stretch;
+  gap: 0.9rem;
+
+  width: 100%;
 }
 
 .newsletter-form input {
-  min-width: 320px;
+  width: 100%;
   height: 56px;
 
   padding: 0 1rem;
@@ -1220,7 +1221,6 @@ body.cart-open .header-cart {
   background: rgba(255, 255, 255, 0.75);
 
   color: var(--color-text);
-
   outline: none;
 }
 
@@ -1228,8 +1228,71 @@ body.cart-open .header-cart {
   color: rgba(0, 0, 0, 0.45);
 }
 
+.newsletter-form input:focus {
+  border-color: var(--color-rust);
+}
+
 .newsletter-form .btn {
-  min-width: 180px;
+  width: 100%;
+  min-width: 0;
+}
+
+/* Honeypot */
+
+.newsletter-honey {
+  position: absolute !important;
+  left: -9999px !important;
+  width: 1px !important;
+  height: 1px !important;
+  opacity: 0 !important;
+  pointer-events: none !important;
+}
+
+/* Consent */
+
+.newsletter-consent {
+  margin: 0;
+
+  font-size: 0.82rem;
+  line-height: 1.5;
+
+  color: rgba(28, 27, 24, 0.68);
+
+  text-align: left;
+}
+
+/* Messages */
+
+.newsletter-message {
+  min-height: 1.2rem;
+
+  margin: 0;
+
+  font-size: 0.9rem;
+  font-weight: 600;
+
+  text-align: left;
+}
+
+.newsletter-message.success {
+  color: #2f7a3f;
+}
+
+.newsletter-message.error {
+  color: #b13b2e;
+}
+
+/* Mobile */
+
+@media (max-width: 860px) {
+  .newsletter-card {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+  }
+
+  .newsletter-copy {
+    max-width: none;
+  }
 }
 
 /* responsive */
