@@ -10,6 +10,7 @@
     initShopifyButtons();
     setupCustomCartTrigger();
     initStoreLocator();
+    initNewsletterForm();
   });
 
   document.addEventListener("keydown", (event) => {
@@ -721,6 +722,47 @@
         }
       } catch (error) {
         console.error(error);
+        message.textContent = "Something went wrong.";
+      }
+    });
+  }
+
+  function initNewsletterForm() {
+    const newsletterForm = document.getElementById("newsletter-form");
+    if (!newsletterForm) return;
+
+    newsletterForm.addEventListener("submit", async (event) => {
+      event.preventDefault();
+
+      const emailInput = document.getElementById("newsletter-email");
+      const message = document.getElementById("newsletter-message");
+
+      message.textContent = "Submitting...";
+
+      try {
+        const response = await fetch("/api/newsletter", {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+            Accept: "application/json",
+          },
+          body: JSON.stringify({
+            email: emailInput.value.trim(),
+          }),
+        });
+
+        const data = await response.json();
+
+        if (!response.ok || !data.success) {
+          console.error("Newsletter API error:", data);
+          message.textContent = data.error || "Something went wrong.";
+          return;
+        }
+
+        emailInput.value = "";
+        message.textContent = "Thanks for subscribing!";
+      } catch (error) {
+        console.error("Newsletter request failed:", error);
         message.textContent = "Something went wrong.";
       }
     });
