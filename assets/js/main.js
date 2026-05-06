@@ -23,8 +23,8 @@
     {
       key: "roasted-habanero",
       name: "Roasted Habanero",
-      href: "roasted-habanero.html",
-      image: "assets/images/flavors/roasted-habanero.png",
+      href: "/roasted-habanero",
+      image: "/assets/images/flavors/roasted-habanero.png",
       imageAlt: "Bottle of Mago Roasted Habanero hot sauce",
       kicker: "Featured Flavor",
       description:
@@ -35,8 +35,8 @@
     {
       key: "pineapple-habanero",
       name: "Pineapple Habanero",
-      href: "pineapple-habanero.html",
-      image: "assets/images/flavors/pineapple-habanero.png",
+      href: "/pineapple-habanero",
+      image: "/assets/images/flavors/pineapple-habanero.png",
       imageAlt: "Bottle of Mago Pineapple Habanero hot sauce",
       kicker: "Featured Flavor",
       description:
@@ -47,8 +47,8 @@
     {
       key: "ghost-pepper",
       name: "Ghost Pepper",
-      href: "ghost-pepper.html",
-      image: "assets/images/flavors/ghost-pepper.png",
+      href: "/ghost-pepper",
+      image: "/assets/images/flavors/ghost-pepper.png",
       imageAlt: "Bottle of Mago Ghost Pepper hot sauce",
       kicker: "Featured Flavor",
       description:
@@ -59,8 +59,8 @@
     {
       key: "roasted-verde",
       name: "Roasted Verde",
-      href: "roasted-verde.html",
-      image: "assets/images/flavors/roasted-verde.png",
+      href: "/roasted-verde",
+      image: "/assets/images/flavors/roasted-verde.png",
       imageAlt: "Bottle of Mago Roasted Verde hot sauce",
       kicker: "Featured Flavor",
       description:
@@ -148,19 +148,15 @@
       const previousIndex = getWrappedIndex(currentIndex - 1, FLAVORS.length);
       const nextIndex = getWrappedIndex(currentIndex + 1, FLAVORS.length);
 
-      const previousFlavor = FLAVORS[previousIndex];
-      const currentFlavor = FLAVORS[currentIndex];
-      const nextFlavor = FLAVORS[nextIndex];
-
       carouselTrack.innerHTML = `
-        ${buildSideCard(previousFlavor, "previous")}
-        ${buildFeaturedCard(currentFlavor)}
-        ${buildSideCard(nextFlavor, "next")}
+        ${buildSideCard(FLAVORS[previousIndex], "previous")}
+        ${buildFeaturedCard(FLAVORS[currentIndex])}
+        ${buildSideCard(FLAVORS[nextIndex], "next")}
       `;
 
       carouselTrack.setAttribute(
         "aria-label",
-        `Featured flavor: ${currentFlavor.name}. Use previous and next buttons to browse flavors.`,
+        `Featured flavor: ${FLAVORS[currentIndex].name}. Use previous and next buttons to browse flavors.`,
       );
 
       attachCardClickHandlers();
@@ -168,12 +164,9 @@
     }
 
     function attachCardClickHandlers() {
-      const sideCards = carouselTrack.querySelectorAll(".flavor-card-side");
-
-      sideCards.forEach((card) => {
+      carouselTrack.querySelectorAll(".flavor-card-side").forEach((card) => {
         card.addEventListener("click", (event) => {
-          const clickedLink = event.target.closest("a");
-          if (clickedLink) return;
+          if (event.target.closest("a")) return;
 
           const action = card.getAttribute("data-carousel-position");
           if (!action) return;
@@ -267,7 +260,7 @@
               aria-label="Add ${escapeHtml(flavor.name)} to cart"
             ></div>
 
-            <a class="btn btn-secondary" href="shop.html">Shop All Flavors</a>
+            <a class="btn btn-secondary" href="/shop">Shop All Flavors</a>
           </div>
         </div>
       </article>
@@ -286,13 +279,11 @@
       if (wrapper.dataset.shopifyMounted === "true") return;
 
       const productKey = wrapper.dataset.shopifyProduct;
-      if (!productKey) return;
-
       const config = window.MAGO_SHOPIFY_CONFIG;
       const buyButton = window.ShopifyBuy;
       const uiGlobal = window.ShopifyBuy && window.ShopifyBuy.UI;
 
-      if (!config || !buyButton || !uiGlobal) {
+      if (!productKey || !config || !buyButton || !uiGlobal) {
         renderShopifyFallback(wrapper, productKey);
         return;
       }
@@ -342,7 +333,6 @@
         buttonDestination: "cart",
         events: {
           afterRender: updateCartIconAfterShopifyChange,
-
           addVariantToCart: () => {
             document.body.classList.add("cart-open");
             updateCartOffset();
@@ -362,39 +352,6 @@
         text: {
           button: productConfig.buttonText || "Add to Cart",
         },
-        styles: {
-          product: {
-            "text-align": "center",
-            "max-width": "100%",
-            margin: "0",
-          },
-          button: {
-            "font-family": "Inter, Arial, sans-serif",
-            "font-size": "0.92rem",
-            "font-weight": "800",
-            "letter-spacing": "0.05em",
-            "text-transform": "uppercase",
-            "min-height": "56px",
-            "padding-top": "0",
-            "padding-bottom": "0",
-            "padding-left": "1.35rem",
-            "padding-right": "1.35rem",
-            "border-radius": "0",
-            border: "1px solid transparent",
-            "background-color": "#b55428",
-            color: "#ffffff",
-            cursor: "pointer",
-            "box-shadow": "0 8px 20px rgba(0, 0, 0, 0.08)",
-          },
-          buttonHover: {
-            "background-color": "#7c3716",
-            color: "#ffffff",
-          },
-          buttonFocus: {
-            "background-color": "#7c3716",
-            color: "#ffffff",
-          },
-        },
       },
       cart: {
         popup: false,
@@ -407,39 +364,6 @@
         text: {
           total: "Subtotal",
           button: "Checkout",
-        },
-        styles: {
-          button: {
-            "font-family": "Inter, Arial, sans-serif",
-            "font-weight": "800",
-            "letter-spacing": "0.05em",
-            "text-transform": "uppercase",
-            "border-radius": "0",
-            "background-color": "#b55428",
-            color: "#ffffff",
-          },
-          buttonHover: {
-            "background-color": "#7c3716",
-            color: "#ffffff",
-          },
-          buttonFocus: {
-            "background-color": "#7c3716",
-            color: "#ffffff",
-          },
-        },
-      },
-      toggle: {
-        styles: {
-          toggle: {
-            "background-color": "#b55428",
-            "border-radius": "50%",
-          },
-          toggleHover: {
-            "background-color": "#7c3716",
-          },
-          toggleFocus: {
-            "background-color": "#7c3716",
-          },
         },
       },
     };
@@ -472,7 +396,6 @@
 
     cartStateWatcher = window.setInterval(() => {
       const cartFrame = document.querySelector(".shopify-buy-frame--cart");
-
       if (!cartFrame) return;
 
       const rect = cartFrame.getBoundingClientRect();
@@ -531,34 +454,23 @@
   }
 
   function renderShopifyFallback(wrapper, productKey) {
-    const href = getProductUrlFromKey(productKey);
-
     wrapper.dataset.shopifyMounted = "true";
     wrapper.innerHTML = `
-      <a class="btn btn-primary" href="${escapeHtml(href)}">Add to Cart</a>
+      <a class="btn btn-primary" href="${escapeHtml(getProductUrlFromKey(productKey))}">
+        Add to Cart
+      </a>
     `;
   }
 
   function getProductUrlFromKey(productKey) {
-    if (!productKey) return "shop.html";
+    if (!productKey) return "/shop";
 
-    if (productKey.includes("roasted-habanero")) return "roasted-habanero.html";
-    if (productKey.includes("pineapple-habanero")) {
-      return "pineapple-habanero.html";
-    }
-    if (productKey.includes("ghost-pepper")) return "ghost-pepper.html";
-    if (productKey.includes("roasted-verde")) return "roasted-verde.html";
+    if (productKey.includes("roasted-habanero")) return "/roasted-habanero";
+    if (productKey.includes("pineapple-habanero")) return "/pineapple-habanero";
+    if (productKey.includes("ghost-pepper")) return "/ghost-pepper";
+    if (productKey.includes("roasted-verde")) return "/roasted-verde";
 
-    return "shop.html";
-  }
-
-  function escapeHtml(value) {
-    return String(value)
-      .replaceAll("&", "&amp;")
-      .replaceAll("<", "&lt;")
-      .replaceAll(">", "&gt;")
-      .replaceAll('"', "&quot;")
-      .replaceAll("'", "&#39;");
+    return "/shop";
   }
 
   function updateCartOffset() {
@@ -583,7 +495,7 @@
 
     let stores = [];
 
-    fetch("assets/data/stores.json")
+    fetch("/assets/data/stores.json")
       .then((response) => {
         if (!response.ok) throw new Error("Could not load stores.json");
         return response.json();
@@ -595,9 +507,9 @@
       .catch((error) => {
         console.error(error);
         results.innerHTML = `
-        <h2>Retail Locations</h2>
-        <p>Store locations could not be loaded right now.</p>
-      `;
+          <h2>Retail Locations</h2>
+          <p>Store locations could not be loaded right now.</p>
+        `;
       });
 
     form.addEventListener("submit", (event) => {
@@ -627,29 +539,26 @@
 
       renderStores(matches);
 
-      if (matches[0]) {
-        updateMap(matches[0]);
-      }
+      if (matches[0]) updateMap(matches[0]);
     });
 
     function renderStores(list) {
       if (!list.length) {
         results.innerHTML = `
-        <h2>Retail Locations</h2>
-        <p>No locations found. Try searching by city, ZIP code, or store name.</p>
-      `;
+          <h2>Retail Locations</h2>
+          <p>No locations found. Try searching by city, ZIP code, or store name.</p>
+        `;
         return;
       }
 
       results.innerHTML = `
-      <h2>Retail Locations</h2>
-      <div class="store-results-grid">
-        ${list.map(buildStoreCard).join("")}
-      </div>
-    `;
+        <h2>Retail Locations</h2>
+        <div class="store-results-grid">
+          ${list.map(buildStoreCard).join("")}
+        </div>
+      `;
 
-      const buttons = results.querySelectorAll("[data-store-index]");
-      buttons.forEach((button) => {
+      results.querySelectorAll("[data-store-index]").forEach((button) => {
         button.addEventListener("click", () => {
           const index = Number(button.dataset.storeIndex);
           const store = list[index];
@@ -662,145 +571,95 @@
       const products = Array.isArray(store.products) ? store.products : [];
 
       return `
-      <article class="store-card">
-        <h3>${escapeHtml(store.name || "Retail Location")}</h3>
-        <p>${escapeHtml(store.address || "")}</p>
-        <p>
-          ${escapeHtml(store.city || "")}${store.city ? ", " : ""}
-          ${escapeHtml(store.state || "")}
-          ${escapeHtml(store.zip || "")}
-        </p>
-        ${
-          products.length
-            ? `<p class="store-products">${products.map(escapeHtml).join(", ")}</p>`
-            : ""
-        }
-        <button class="btn btn-secondary" type="button" data-store-index="${index}">
-          View on Map
-        </button>
-      </article>
-    `;
+        <article class="store-card">
+          <h3>${escapeHtml(store.name || "Retail Location")}</h3>
+          <p>${escapeHtml(store.address || "")}</p>
+          <p>
+            ${escapeHtml(store.city || "")}${store.city ? ", " : ""}
+            ${escapeHtml(store.state || "")}
+            ${escapeHtml(store.zip || "")}
+          </p>
+          ${
+            products.length
+              ? `<p class="store-products">${products.map(escapeHtml).join(", ")}</p>`
+              : ""
+          }
+          <button class="btn btn-secondary" type="button" data-store-index="${index}">
+            View on Map
+          </button>
+        </article>
+      `;
     }
 
     function updateMap(store) {
       const query = encodeURIComponent(
-        `${store.name || ""} ${store.address || ""} ${store.city || ""} ${store.state || ""} ${store.zip || ""}`,
+        `${store.name || ""} ${store.address || ""} ${store.city || ""} ${
+          store.state || ""
+        } ${store.zip || ""}`,
       );
 
       map.src = `https://www.google.com/maps?q=${query}&output=embed`;
     }
   }
 
-  export default async function handler(req, res) {
-    res.setHeader("Content-Type", "application/json");
+  function initNewsletterForm() {
+    const newsletterForm = document.getElementById("newsletter-form");
+    if (!newsletterForm) return;
 
-    if (req.method !== "POST") {
-      return res.status(405).json({ error: "Method not allowed" });
-    }
+    newsletterForm.addEventListener("submit", async (event) => {
+      event.preventDefault();
 
-    try {
-      const { email } = req.body || {};
+      const emailInput = document.getElementById("newsletter-email");
+      const message = document.getElementById("newsletter-message");
 
-      if (!email) {
-        return res.status(400).json({ error: "Email required" });
-      }
+      if (!emailInput || !message) return;
 
-      const store = process.env.SHOPIFY_STORE_DOMAIN;
-      const clientId = process.env.SHOPIFY_CLIENT_ID;
-      const clientSecret = process.env.SHOPIFY_CLIENT_SECRET;
+      message.textContent = "Submitting...";
 
-      if (!store || !clientId || !clientSecret) {
-        return res.status(500).json({
-          error: "Missing environment variables",
-          hasStore: Boolean(store),
-          hasClientId: Boolean(clientId),
-          hasClientSecret: Boolean(clientSecret),
-        });
-      }
-
-      const tokenResponse = await fetch(
-        `https://${store}/admin/oauth/access_token`,
-        {
+      try {
+        const response = await fetch("/api/newsletter", {
           method: "POST",
           headers: {
             "Content-Type": "application/json",
             Accept: "application/json",
           },
           body: JSON.stringify({
-            grant_type: "client_credentials",
-            client_id: clientId,
-            client_secret: clientSecret,
+            email: emailInput.value.trim(),
           }),
-        },
-      );
-
-      const tokenText = await tokenResponse.text();
-
-      let tokenData;
-      try {
-        tokenData = JSON.parse(tokenText);
-      } catch {
-        return res.status(500).json({
-          error: "Shopify token response was not JSON",
-          status: tokenResponse.status,
-          responsePreview: tokenText.slice(0, 300),
         });
+
+        const text = await response.text();
+
+        let data;
+        try {
+          data = JSON.parse(text);
+        } catch {
+          console.error("Non-JSON API response:", text);
+          message.textContent = "Server returned an error.";
+          return;
+        }
+
+        if (!response.ok || !data.success) {
+          console.error("Newsletter API error:", data);
+          message.textContent = data.error || "Something went wrong.";
+          return;
+        }
+
+        emailInput.value = "";
+        message.textContent = "Thanks for subscribing!";
+      } catch (error) {
+        console.error("Newsletter request failed:", error);
+        message.textContent = "Something went wrong.";
       }
+    });
+  }
 
-      if (!tokenResponse.ok || !tokenData.access_token) {
-        return res.status(500).json({
-          error: "Could not get Shopify access token",
-          status: tokenResponse.status,
-          details: tokenData,
-        });
-      }
-
-      const customerResponse = await fetch(
-        `https://${store}/admin/api/2024-10/customers.json`,
-        {
-          method: "POST",
-          headers: {
-            "Content-Type": "application/json",
-            Accept: "application/json",
-            "X-Shopify-Access-Token": tokenData.access_token,
-          },
-          body: JSON.stringify({
-            customer: {
-              email,
-              tags: "newsletter",
-              accepts_marketing: true,
-            },
-          }),
-        },
-      );
-
-      const customerText = await customerResponse.text();
-
-      let customerData;
-      try {
-        customerData = JSON.parse(customerText);
-      } catch {
-        return res.status(500).json({
-          error: "Shopify customer response was not JSON",
-          status: customerResponse.status,
-          responsePreview: customerText.slice(0, 300),
-        });
-      }
-
-      if (!customerResponse.ok) {
-        return res.status(500).json({
-          error: "Shopify customer creation failed",
-          status: customerResponse.status,
-          details: customerData,
-        });
-      }
-
-      return res.status(200).json({ success: true });
-    } catch (error) {
-      return res.status(500).json({
-        error: "Server error",
-        message: error.message,
-      });
-    }
+  function escapeHtml(value) {
+    return String(value)
+      .replaceAll("&", "&amp;")
+      .replaceAll("<", "&lt;")
+      .replaceAll(">", "&gt;")
+      .replaceAll('"', "&quot;")
+      .replaceAll("'", "&#39;");
   }
 })();
