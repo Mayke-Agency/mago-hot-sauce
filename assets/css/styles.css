@@ -547,6 +547,7 @@ a:focus-visible {
   overflow: hidden;
   background: var(--color-bg);
   width: 100%;
+  padding-bottom: 0;
 }
 
 .heat-carousel .container {
@@ -554,6 +555,7 @@ a:focus-visible {
   max-width: none;
   padding-left: 0;
   padding-right: 0;
+  padding-bottom: 0;
 }
 
 .carousel-shell {
@@ -797,7 +799,7 @@ a:focus-visible {
 .product-details {
   display: flex;
   flex-direction: column;
-  justify-content: center; /* 🔥 centers text */
+  justify-content: center;
 }
 
 .breadcrumb {
@@ -1156,6 +1158,101 @@ body.cart-open .header-cart {
   margin-inline: auto;
 }
 
+/* =========================================
+   NEWSLETTER
+========================================= */
+
+.newsletter-section {
+  padding-top: 0;
+}
+
+.newsletter-card {
+  position: relative;
+  overflow: hidden;
+
+  padding: clamp(2rem, 5vw, 4rem);
+
+  display: grid;
+  grid-template-columns: 1fr auto;
+  gap: 2rem;
+  align-items: center;
+}
+
+.newsletter-card::before {
+  content: "";
+
+  position: absolute;
+  inset: 0;
+
+  pointer-events: none;
+}
+
+.newsletter-copy {
+  position: relative;
+  z-index: 1;
+  max-width: 640px;
+}
+
+.newsletter-copy h2 {
+  margin-bottom: 1rem;
+}
+
+.newsletter-copy p:last-child {
+  margin-bottom: 0;
+}
+
+.newsletter-form {
+  position: relative;
+  z-index: 1;
+
+  display: flex;
+  gap: 0.75rem;
+  align-items: center;
+}
+
+.newsletter-form input {
+  min-width: 320px;
+  height: 56px;
+
+  padding: 0 1rem;
+
+  border: 1px solid rgba(0, 0, 0, 0.08);
+  background: rgba(255, 255, 255, 0.75);
+
+  color: var(--color-text);
+
+  outline: none;
+}
+
+.newsletter-form input::placeholder {
+  color: rgba(0, 0, 0, 0.45);
+}
+
+.newsletter-form .btn {
+  min-width: 180px;
+}
+
+/* responsive */
+
+@media (max-width: 860px) {
+  .newsletter-card {
+    grid-template-columns: 1fr;
+  }
+
+  .newsletter-form {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .newsletter-form input {
+    min-width: 100%;
+  }
+
+  .newsletter-form .btn {
+    width: 100%;
+  }
+}
+
 /* responsive */
 
 @media (max-width: 1100px) {
@@ -1390,4 +1487,279 @@ body.cart-open .header-cart {
   .section-media img {
     min-height: 320px;
   }
+}
+
+/* =========================================
+   SUMMERSIDE-INSPIRED PALETTE OVERRIDE
+   Warm cream + golden yellow + orange
+   With section-by-section color variation
+   Paste at bottom of your CSS
+========================================= */
+
+:root {
+  --color-bg: #e0b24f !important;
+  --color-surface: #f3e1b6 !important;
+  --color-surface-2: #ecd29a !important;
+
+  --color-text: #1e1c18 !important;
+  --color-text-soft: rgba(30, 28, 24, 0.72) !important;
+
+  --color-mustard: #e0b24f !important;
+  --color-olive: #b76d28 !important;
+  --color-rust: #ef7a34 !important;
+  --color-rust-dark: #d86524 !important;
+
+  --color-charcoal: #181818 !important;
+  --color-white: #ffffff !important;
+
+  --color-border: rgba(30, 28, 24, 0.08) !important;
+  --color-border-light: rgba(30, 28, 24, 0.04) !important;
+}
+
+body {
+  background: repeating-linear-gradient(
+    90deg,
+    #f3d7a0 0px,
+    #f3d7a0 90px,
+    #e0b24f 90px,
+    #e0b24f 180px
+  ) !important;
+  color: var(--color-text) !important;
+}
+
+main {
+  background: rgb(187, 191, 97) !important;
+  backdrop-filter: blur(4px);
+}
+
+.site-header {
+  background: rgb(130, 194, 195) !important;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.04) !important;
+  backdrop-filter: blur(10px) !important;
+}
+
+.nav-list a {
+  color: #111 !important;
+}
+
+.nav-list a:hover,
+.nav-list a[aria-current="page"] {
+  color: var(--color-rust) !important;
+  background: rgba(239, 122, 52, 0.08) !important;
+}
+
+/* homepage hero */
+
+.hero-copy {
+  background:
+    linear-gradient(180deg, rgba(255, 255, 255, 0.22), rgba(255, 255, 255, 0)),
+    #f8f4eb !important;
+}
+
+.hero-media {
+  background: #e0b24f !important;
+}
+
+/* inner page heroes */
+
+.page-hero-copy {
+  background: linear-gradient(135deg, #f7ead0 0%, #f2d598 100%) !important;
+}
+
+.page-hero-media {
+  background: #e7b951 !important;
+}
+
+/* about preview */
+
+.about-preview {
+  background: #f0ac2e !important;
+}
+
+.about-preview .section-copy {
+  background: linear-gradient(135deg, #f6ebcf 0%, #f1ddb1 100%) !important;
+}
+
+.about-content::before {
+  background: linear-gradient(135deg, #fff2d8 0%, #f1ddb1 100%) !important;
+}
+
+/* carousel */
+
+.heat-carousel {
+  background: rgb(187, 191, 97) !important;
+}
+
+.flavor-carousel {
+  background:
+    linear-gradient(
+      180deg,
+      rgba(255, 255, 255, 0.28),
+      rgba(255, 255, 255, 0.08)
+    ),
+    #f8f1df !important;
+  border-top: 1px solid rgba(0, 0, 0, 0.06) !important;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.06) !important;
+}
+
+/* shop/product sections */
+
+.products-section {
+  background: linear-gradient(180deg, #f8f1df 0%, #f3e1b6 100%) !important;
+}
+
+.product-card,
+.related-product-card {
+  background: linear-gradient(
+    180deg,
+    rgba(255, 255, 255, 0.38),
+    rgba(255, 255, 255, 0.16)
+  ) !important;
+  backdrop-filter: blur(3px);
+}
+
+.product-card-image {
+  background:
+    radial-gradient(circle at top, rgba(255, 255, 255, 0.45), transparent 45%),
+    #f4e3bb !important;
+}
+
+/* product detail pages */
+
+.product-hero {
+  background: linear-gradient(180deg, #f5dfad 0%, #f8f1df 100%) !important;
+}
+
+.product-image {
+  background:
+    radial-gradient(circle at top, rgba(255, 255, 255, 0.45), transparent 45%),
+    #ecd29a !important;
+}
+
+.product-details {
+  background: linear-gradient(
+    180deg,
+    rgba(255, 255, 255, 0.18),
+    rgba(255, 255, 255, 0)
+  ) !important;
+}
+
+.related-products {
+  background: linear-gradient(180deg, #f8f1df 0%, #f6ebcf 100%) !important;
+}
+
+/* store locator */
+
+.locator-section {
+  background: linear-gradient(180deg, #f6ebcf 0%, #f3d7a0 100%) !important;
+}
+
+.store-card {
+  background: linear-gradient(
+    180deg,
+    rgba(255, 255, 255, 0.48),
+    rgba(255, 255, 255, 0.18)
+  ) !important;
+  border: 1px solid rgba(0, 0, 0, 0.06) !important;
+}
+
+/* buttons */
+
+.btn-primary,
+.shopify-button-wrapper .shopify-buy__btn,
+.header-cart a {
+  background: var(--color-rust) !important;
+  color: white !important;
+  border: none !important;
+}
+
+.btn-primary:hover,
+.shopify-button-wrapper .shopify-buy__btn:hover,
+.header-cart a:hover {
+  background: var(--color-rust-dark) !important;
+}
+
+.btn-secondary {
+  border-color: #111 !important;
+  color: #111 !important;
+}
+
+.btn-secondary:hover {
+  background: #111 !important;
+  color: white !important;
+}
+
+.product-heat {
+  background: rgba(224, 178, 79, 0.24) !important;
+  color: #111 !important;
+}
+
+.eyebrow {
+  color: var(--color-rust) !important;
+}
+
+/* final CTA */
+
+.final-cta {
+  background: #f3d7a0 !important;
+}
+
+.final-cta-inner {
+  background: linear-gradient(135deg, #ef7a34, #f1914f) !important;
+  border: none !important;
+  color: white !important;
+}
+
+.final-cta-inner h2,
+.final-cta-inner p,
+.final-cta-inner .eyebrow {
+  color: white !important;
+}
+
+/* footer */
+
+.site-footer {
+  background: linear-gradient(135deg, #ef7a34, #d96525) !important;
+  color: white !important;
+}
+
+.footer-nav a,
+.footer-meta a,
+.footer-brand p {
+  color: rgba(255, 255, 255, 0.92) !important;
+}
+
+.footer-nav a:hover,
+.footer-nav a[aria-current="page"] {
+  color: #ffe7c1 !important;
+}
+
+/* images + logos */
+
+.hero-media img,
+.page-hero-media img,
+.section-media img {
+  filter: saturate(0.96) contrast(1.02) brightness(1.01);
+}
+
+.footer-brand img,
+.mayke-logo,
+.header-cart img {
+  filter: brightness(0) invert(1) !important;
+}
+
+/* borders */
+
+.product-grid,
+.related-links-grid,
+.product-card,
+.related-product-card,
+.final-cta-inner,
+.flavor-carousel {
+  border-color: rgba(0, 0, 0, 0.06) !important;
+}
+
+.section {
+  position: relative;
+  z-index: 1;
 }
