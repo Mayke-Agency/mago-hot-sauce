@@ -691,53 +691,116 @@
     }
   }
 
-  function initNewsletterForm() {
-    const newsletterForm = document.getElementById("newsletter-form");
-    if (!newsletterForm) return;
+  export default async function handler(req, res) {
+    res.setHeader("Content-Type", "application/json");
 
-    newsletterForm.addEventListener("submit", async (event) => {
-      event.preventDefault();
+    if (req.method !== "POST") {
+      return res.status(405).json({ error: "Method not allowed" });
+    }
 
-      const emailInput = document.getElementById("newsletter-email");
-      const message = document.getElementById("newsletter-message");
+    try {
+      const { email } = req.body || {};
 
-      message.textContent = "Submitting...";
+      if (!email) {
+        return res.status(400).json({ error: "Email required" });
+      }
 
-      try {
-        const response = await fetch("/api/newsletter", {
+      const store = process.env.SHOPIFY_STORE_DOMAIN;
+      const clientId = process.env.SHOPIFY_CLIENT_ID;
+      const clientSecret = process.env.SHOPIFY_CLIENT_SECRET;
+
+      if (!store || !clientId || !clientSecret) {
+        return res.status(500).json({
+          error: "Missing environment variables",
+          hasStore: Boolean(store),
+          hasClientId: Boolean(clientId),
+          hasClientSecret: Boolean(clientSecret),
+        });
+      }
+
+      const tokenResponse = await fetch(
+        `https://${store}/admin/oauth/access_token`,
+        {
           method: "POST",
           headers: {
             "Content-Type": "application/json",
             Accept: "application/json",
           },
           body: JSON.stringify({
-            email: emailInput.value.trim(),
+            grant_type: "client_credentials",
+            client_id: clientId,
+            client_secret: clientSecret,
           }),
+        },
+      );
+
+      const tokenText = await tokenResponse.text();
+
+      let tokenData;
+      try {
+        tokenData = JSON.parse(tokenText);
+      } catch {
+        return res.status(500).json({
+          error: "Shopify token response was not JSON",
+          status: tokenResponse.status,
+          responsePreview: tokenText.slice(0, 300),
         });
-
-        const text = await response.text();
-
-        let data;
-        try {
-          data = JSON.parse(text);
-        } catch {
-          console.error("Non-JSON API response:", text);
-          message.textContent = "Server returned an error.";
-          return;
-        }
-
-        if (!response.ok || !data.success) {
-          console.error("Newsletter API error:", data);
-          message.textContent = data.error || "Something went wrong.";
-          return;
-        }
-
-        emailInput.value = "";
-        message.textContent = "Thanks for subscribing!";
-      } catch (error) {
-        console.error("Newsletter request failed:", error);
-        message.textContent = "Something went wrong.";
       }
-    });
+
+      if (!tokenResponse.ok || !tokenData.access_token) {
+        return res.status(500).json({
+          error: "Could not get Shopify access token",
+          status: tokenResponse.status,
+          details: tokenData,
+        });
+      }
+
+      const customerResponse = await fetch(
+        `https://${store}/admin/api/2024-10/customers.json`,
+        {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+            Accept: "application/json",
+            "X-Shopify-Access-Token": tokenData.access_token,
+          },
+          body: JSON.stringify({
+            customer: {
+              email,
+              tags: "newsletter",
+              accepts_marketing: true,
+            },
+          }),
+        },
+      );
+
+      const customerText = await customerResponse.text();
+
+      let customerData;
+      try {
+        customerData = JSON.parse(customerText);
+      } catch {
+        return res.status(500).json({
+          error: "Shopify customer response was not JSON",
+          status: customerResponse.status,
+          responsePreview: customerText.slice(0, 300),
+        });
+      }
+
+      if (!customerResponse.ok) {
+        return res.status(500).json({
+          error: "Shopify customer creation failed",
+          status: customerResponse.status,
+          details: customerData,
+        });
+      }
+
+      return res.status(200).json({ success: true });
+    } catch (error) {
+      return res.status(500).json({
+        error: "Server error",
+        message: error.message,
+      });
+    }
   }
 })();
