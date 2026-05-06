@@ -76,7 +76,11 @@ export default async function handler(req, res) {
             first_name: name,
             email,
             tags: "newsletter",
-            accepts_marketing: true,
+            email_marketing_consent: {
+              state: "subscribed",
+              opt_in_level: "single_opt_in",
+              consent_updated_at: new Date().toISOString(),
+            },
           },
         }),
       },
