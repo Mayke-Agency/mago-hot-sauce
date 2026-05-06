@@ -1,16 +1,29 @@
 export default async function handler(req, res) {
+  res.setHeader("Content-Type", "application/json");
+
   if (req.method !== "POST") {
     return res.status(405).json({ error: "Method not allowed" });
   }
 
   try {
-    const { email } = req.body;
+    const { email } = req.body || {};
 
     if (!email) {
       return res.status(400).json({ error: "Email required" });
     }
 
     const store = process.env.SHOPIFY_STORE_DOMAIN;
+    const clientId = process.env.SHOPIFY_CLIENT_ID;
+    const clientSecret = process.env.SHOPIFY_CLIENT_SECRET;
+
+    if (!store || !clientId || !clientSecret) {
+      return res.status(500).json({
+        error: "Missing environment variables",
+        hasStore: Boolean(store),
+        hasClientId: Boolean(clientId),
+        hasClientSecret: Boolean(clientSecret),
+      });
+    }
 
     const tokenResponse = await fetch(
       `https://${store}/admin/oauth/access_token`,
@@ -18,20 +31,33 @@ export default async function handler(req, res) {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
+          Accept: "application/json",
         },
         body: JSON.stringify({
           grant_type: "client_credentials",
-          client_id: process.env.SHOPIFY_CLIENT_ID,
-          client_secret: process.env.SHOPIFY_CLIENT_SECRET,
+          client_id: clientId,
+          client_secret: clientSecret,
         }),
       },
     );
 
-    const tokenData = await tokenResponse.json();
+    const tokenText = await tokenResponse.text();
+
+    let tokenData;
+    try {
+      tokenData = JSON.parse(tokenText);
+    } catch {
+      return res.status(500).json({
+        error: "Shopify token response was not JSON",
+        status: tokenResponse.status,
+        responsePreview: tokenText.slice(0, 500),
+      });
+    }
 
     if (!tokenResponse.ok || !tokenData.access_token) {
       return res.status(500).json({
         error: "Could not get Shopify access token",
+        status: tokenResponse.status,
         details: tokenData,
       });
     }
@@ -42,6 +68,7 @@ export default async function handler(req, res) {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
+          Accept: "application/json",
           "X-Shopify-Access-Token": tokenData.access_token,
         },
         body: JSON.stringify({
@@ -54,17 +81,32 @@ export default async function handler(req, res) {
       },
     );
 
-    const customerData = await customerResponse.json();
+    const customerText = await customerResponse.text();
+
+    let customerData;
+    try {
+      customerData = JSON.parse(customerText);
+    } catch {
+      return res.status(500).json({
+        error: "Shopify customer response was not JSON",
+        status: customerResponse.status,
+        responsePreview: customerText.slice(0, 500),
+      });
+    }
 
     if (!customerResponse.ok) {
       return res.status(500).json({
         error: "Shopify customer creation failed",
+        status: customerResponse.status,
         details: customerData,
       });
     }
 
     return res.status(200).json({ success: true });
   } catch (error) {
-    return res.status(500).json({ error: error.message });
+    return res.status(500).json({
+      error: "Server error",
+      message: error.message,
+    });
   }
 }
