@@ -351,21 +351,24 @@
               </p>
             </div>
 
-            <form class="newsletter-form" id="newsletter-form">
+            <form class="newsletter-form" id="newsletter-form" novalidate>
               <input
                 type="email"
                 id="newsletter-email"
                 name="email"
                 placeholder="Enter your email"
+                aria-label="Email address"
                 required
               />
 
               <button type="submit" class="btn btn-primary">Subscribe</button>
 
-              <p id="newsletter-message" class="newsletter-message"></p>
+              <p
+                id="newsletter-message"
+                class="newsletter-message"
+                aria-live="polite"
+              ></p>
             </form>
-
-            <p id="newsletter-message"></p>
           </div>
         </div>
       </section>
