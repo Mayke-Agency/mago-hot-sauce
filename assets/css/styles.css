@@ -86,6 +86,22 @@ main {
   overflow: clip;
 }
 
+html,
+body {
+  min-height: 100%;
+}
+
+body {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+main {
+  flex: 1;
+  overflow: clip;
+}
+
 /* layout */
 
 .container {
@@ -189,6 +205,7 @@ section.full-bleed {
 .final-cta.full-bleed {
   padding-left: 0;
   padding-right: 0;
+  padding-bottom: 0;
 }
 
 .final-cta.full-bleed .container {
@@ -513,7 +530,7 @@ a:focus-visible {
 }
 
 .page-store-locator .locator-section {
-  padding: 1rem 0 2rem;
+  padding: 1rem 0 4rem;
 }
 
 .page-hero-compact .narrow-copy {
@@ -1879,7 +1896,7 @@ main {
 }
 
 .final-cta-inner {
-  background: linear-gradient(135deg, #ef7a34, #f1914f) !important;
+  background: linear-gradient(135deg, #bbbf61, #cacf6b) !important;
   border: none !important;
   color: white !important;
 }

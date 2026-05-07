@@ -20,7 +20,7 @@
     <meta property="og:url" content="https://www.magohotsauce.com/about" />
     <meta
       property="og:image"
-      content="https://www.magohotsauce.com/assets/images/about-page.jpg"
+      content="https://www.magohotsauce.com/assets/images/Mago-photo1.webp"
     />
 
     <meta name="twitter:card" content="summary_large_image" />
@@ -31,11 +31,11 @@
     />
     <meta
       name="twitter:image"
-      content="https://www.magohotsauce.com/assets/images/about-page.jpg"
+      content="https://www.magohotsauce.com/assets/images/Mago-photo1.webp"
     />
 
     <link rel="icon" href="favicon.ico" />
-    <link rel="preload" as="image" href="assets/images/about-page.jpg" />
+    <link rel="preload" as="image" href="assets/images/Mago-photo1.webp" />
     <link rel="stylesheet" href="assets/css/styles.css" />
     <script src="assets/js/main.js" defer></script>
   </head>
@@ -46,38 +46,56 @@
       <div class="container header-inner">
         <a class="site-logo" href="/" aria-label="Mago Hot Sauce home">
           <img
-            src="assets/images/mago-logo-black.svg"
+            src="/assets/images/mago-logo-black.svg"
             alt="Mago Hot Sauce logo"
             width="160"
             height="56"
           />
         </a>
 
-        <nav class="site-nav" aria-label="Primary navigation">
+        <nav
+          class="site-nav"
+          id="primary-navigation"
+          aria-label="Primary navigation"
+        >
           <ul class="nav-list">
-            <li><a href="/about" aria-current="page">About</a></li>
+            <li><a href="/about">About</a></li>
             <li><a href="/shop">Shop</a></li>
             <li><a href="/store-locator">Store Locator</a></li>
           </ul>
         </nav>
 
-        <div class="header-cart">
-          <a
-            href="#"
-            class="js-open-cart"
-            aria-label="Open cart"
-            data-cart-empty-icon="assets/icons/shopping-cart-empty.svg"
-            data-cart-full-icon="assets/icons/shopping-cart.svg"
+        <div class="header-actions">
+          <div class="header-cart">
+            <a
+              href="#"
+              class="js-open-cart"
+              aria-label="Open cart"
+              data-cart-empty-icon="/assets/icons/shopping-cart-empty.svg"
+              data-cart-full-icon="/assets/icons/shopping-cart.svg"
+            >
+              <img
+                class="js-cart-icon"
+                src="/assets/icons/shopping-cart-empty.svg"
+                alt=""
+                width="28"
+                height="28"
+                aria-hidden="true"
+              />
+            </a>
+          </div>
+
+          <button
+            class="mobile-nav-toggle"
+            type="button"
+            aria-label="Open navigation"
+            aria-controls="primary-navigation"
+            aria-expanded="false"
           >
-            <img
-              class="js-cart-icon"
-              src="assets/icons/shopping-cart-empty.svg"
-              alt=""
-              width="28"
-              height="28"
-              aria-hidden="true"
-            />
-          </a>
+            <span></span>
+            <span></span>
+            <span></span>
+          </button>
         </div>
       </div>
     </header>

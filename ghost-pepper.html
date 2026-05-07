@@ -116,31 +116,49 @@
           />
         </a>
 
-        <nav class="site-nav" aria-label="Primary navigation">
+        <nav
+          class="site-nav"
+          id="primary-navigation"
+          aria-label="Primary navigation"
+        >
           <ul class="nav-list">
             <li><a href="/about">About</a></li>
-            <li><a href="/shop" aria-current="page">Shop</a></li>
+            <li><a href="/shop">Shop</a></li>
             <li><a href="/store-locator">Store Locator</a></li>
           </ul>
         </nav>
 
-        <div class="header-cart">
-          <a
-            href="#"
-            class="js-open-cart"
-            aria-label="Open cart"
-            data-cart-empty-icon="/assets/icons/shopping-cart-empty.svg"
-            data-cart-full-icon="/assets/icons/shopping-cart.svg"
+        <div class="header-actions">
+          <div class="header-cart">
+            <a
+              href="#"
+              class="js-open-cart"
+              aria-label="Open cart"
+              data-cart-empty-icon="/assets/icons/shopping-cart-empty.svg"
+              data-cart-full-icon="/assets/icons/shopping-cart.svg"
+            >
+              <img
+                class="js-cart-icon"
+                src="/assets/icons/shopping-cart-empty.svg"
+                alt=""
+                width="28"
+                height="28"
+                aria-hidden="true"
+              />
+            </a>
+          </div>
+
+          <button
+            class="mobile-nav-toggle"
+            type="button"
+            aria-label="Open navigation"
+            aria-controls="primary-navigation"
+            aria-expanded="false"
           >
-            <img
-              class="js-cart-icon"
-              src="/assets/icons/shopping-cart-empty.svg"
-              alt=""
-              width="28"
-              height="28"
-              aria-hidden="true"
-            />
-          </a>
+            <span></span>
+            <span></span>
+            <span></span>
+          </button>
         </div>
       </div>
     </header>

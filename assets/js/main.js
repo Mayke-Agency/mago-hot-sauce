@@ -558,12 +558,20 @@
           ${list.map(buildStoreCard).join("")}
         </div>
       `;
-
       results.querySelectorAll("[data-store-index]").forEach((button) => {
         button.addEventListener("click", () => {
+          const isMobile = window.matchMedia("(max-width: 900px)").matches;
           const index = Number(button.dataset.storeIndex);
           const store = list[index];
-          if (store) updateMap(store);
+
+          if (!store) return;
+
+          if (isMobile) {
+            window.location.href = button.dataset.mapUrl;
+            return;
+          }
+
+          updateMap(store);
         });
       });
     }
@@ -585,9 +593,14 @@
               ? `<p class="store-products">${products.map(escapeHtml).join(", ")}</p>`
               : ""
           }
-          <button class="btn btn-secondary" type="button" data-store-index="${index}">
-            View on Map
+          <button class="btn btn-secondary" type="button" data-map-url="${escapeHtml(
+            `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(
+              `${store.name || ""} ${store.address || ""} ${store.city || ""} ${store.state || ""} ${store.zip || ""}`,
+            )}`,
+          )}" data-store-index="${index}">
+            Open in Maps
           </button>
+          </a>
         </article>
       `;
     }
