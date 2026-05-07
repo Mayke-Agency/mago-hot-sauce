@@ -769,7 +769,13 @@ a:focus-visible {
 }
 
 .product-page .product-heat {
-  margin-bottom: 1rem;
+  display: inline-flex !important;
+
+  width: fit-content !important;
+
+  align-self: flex-start;
+
+  padding: 0.45rem 0.75rem !important;
 }
 
 /* product page */
@@ -1197,6 +1203,18 @@ body.cart-open .header-cart {
   margin-bottom: 0;
 }
 
+.newsletter-section {
+  padding-bottom: 3rem;
+}
+
+.newsletter-card {
+  padding-bottom: 2.5rem;
+}
+
+.newsletter-message {
+  min-height: 0;
+}
+
 /* Form */
 
 .newsletter-form {
@@ -1282,83 +1300,19 @@ body.cart-open .header-cart {
   color: #b13b2e;
 }
 
-/* Mobile */
+/* Header actions / mobile nav */
 
-@media (max-width: 860px) {
-  .newsletter-card {
-    grid-template-columns: 1fr;
-    gap: 2rem;
-  }
-
-  .newsletter-copy {
-    max-width: none;
-  }
+.header-actions {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
 }
 
-/* responsive */
-
-@media (max-width: 860px) {
-  .newsletter-card {
-    grid-template-columns: 1fr;
-  }
-
-  .newsletter-form {
-    flex-direction: column;
-    align-items: stretch;
-  }
-
-  .newsletter-form input {
-    min-width: 100%;
-  }
-
-  .newsletter-form .btn {
-    width: 100%;
-  }
+.mobile-nav-toggle {
+  display: none;
 }
 
-/* responsive */
-
-@media (max-width: 1100px) {
-  .hero-grid,
-  .page-hero-inner,
-  .section-grid,
-  .product-hero-grid,
-  .about-preview .section-grid {
-    grid-template-columns: 1fr;
-  }
-
-  .hero-copy,
-  .page-hero-copy,
-  .about-preview .section-copy,
-  .product-details {
-    max-width: none;
-    padding: 3rem 1.25rem;
-  }
-
-  .hero-media,
-  .page-hero-media,
-  .section-media,
-  .product-image {
-    order: -1;
-  }
-
-  .hero-media img,
-  .page-hero-media img,
-  .section-media img {
-    min-height: 460px;
-  }
-
-  .product-grid,
-  .related-links-grid {
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-  }
-
-  .footer-inner {
-    grid-template-columns: 1fr 1fr;
-  }
-}
-
-/* tablet */
+/* Tablet */
 
 @media (max-width: 1180px) and (min-width: 861px) {
   .container {
@@ -1376,8 +1330,8 @@ body.cart-open .header-cart {
   .page-hero-copy,
   .about-preview .section-copy,
   .product-details {
-    padding: 4rem 2rem;
     max-width: none;
+    padding: 4rem 2rem;
   }
 
   .hero-media,
@@ -1414,6 +1368,10 @@ body.cart-open .header-cart {
     grid-template-columns: repeat(2, minmax(0, 1fr));
   }
 
+  .related-links-grid {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+
   .locator-layout {
     grid-template-columns: 0.95fr 1.05fr;
     gap: 1.5rem;
@@ -1427,6 +1385,167 @@ body.cart-open .header-cart {
 /* Mobile */
 
 @media (max-width: 860px) {
+  :root {
+    --header-height: auto;
+  }
+
+  .container {
+    width: min(100% - 1.5rem, var(--container));
+  }
+
+  .header-inner {
+    display: grid;
+    grid-template-columns: auto auto;
+    align-items: center;
+    justify-content: space-between;
+    justify-items: stretch;
+    gap: 1rem;
+    padding: 1rem 0;
+  }
+
+  .site-logo {
+    grid-column: 1;
+    justify-self: start;
+  }
+
+  .header-actions {
+    grid-column: 2;
+    justify-self: end;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 0.75rem;
+  }
+
+  .header-cart {
+    order: initial;
+  }
+
+  .mobile-nav-toggle {
+    display: inline-flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 5px;
+
+    width: 48px;
+    height: 48px;
+
+    background: transparent;
+    border: 1px solid var(--color-border);
+  }
+
+  .mobile-nav-toggle span {
+    display: block;
+    width: 22px;
+    height: 2px;
+    margin-inline: auto;
+    background: var(--color-text);
+    transition:
+      transform var(--transition),
+      opacity var(--transition);
+  }
+
+  .mobile-nav-toggle.is-open span:nth-child(1) {
+    transform: translateY(7px) rotate(45deg);
+  }
+
+  .mobile-nav-toggle.is-open span:nth-child(2) {
+    opacity: 0;
+  }
+
+  .mobile-nav-toggle.is-open span:nth-child(3) {
+    transform: translateY(-7px) rotate(-45deg);
+  }
+
+  .site-nav {
+    display: none;
+  }
+
+  .site-nav.is-open {
+    display: block;
+  }
+
+  @media (max-width: 860px) {
+    .site-header {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+    }
+
+    .header-inner {
+      position: relative;
+    }
+
+    .site-nav {
+      position: absolute;
+
+      top: 100%;
+      left: 0;
+      right: 0;
+
+      display: none;
+
+      padding: 1rem;
+
+      background: rgba(248, 245, 238, 0.98);
+      backdrop-filter: blur(12px);
+
+      border: 1px solid var(--color-border);
+      box-shadow: var(--shadow-md);
+
+      z-index: 99;
+    }
+
+    .site-nav.is-open {
+      display: block;
+    }
+
+    .nav-list {
+      display: flex;
+      flex-direction: column;
+      gap: 0.25rem;
+      padding: 0;
+    }
+
+    .nav-list a {
+      justify-content: center;
+      padding: 1rem;
+    }
+  }
+
+  .hero-grid,
+  .page-hero-inner,
+  .section-grid,
+  .product-hero-grid,
+  .about-preview .section-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .hero-copy,
+  .page-hero-copy,
+  .about-preview .section-copy,
+  .product-details {
+    max-width: none;
+    padding: 3rem 1.25rem;
+  }
+
+  .hero-media,
+  .page-hero-media,
+  .section-media,
+  .product-image {
+    order: -1;
+  }
+
+  .hero-media img,
+  .page-hero-media img,
+  .section-media img {
+    min-height: 460px;
+  }
+
+  .section {
+    padding: 4rem 0;
+  }
+
   .carousel-shell {
     padding-top: 1rem;
   }
@@ -1452,50 +1571,49 @@ body.cart-open .header-cart {
   .carousel-actions {
     flex-direction: column;
   }
-}
 
-@media (max-width: 860px) {
-  :root {
-    --header-height: auto;
+  .product-grid,
+  .related-links-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
   }
 
-  .header-inner {
+  .locator-layout {
     grid-template-columns: 1fr;
-    justify-items: center;
-    padding: 1rem 0;
-  }
-
-  .site-nav {
-    order: 3;
-    width: 100%;
-  }
-
-  .nav-list {
-    flex-wrap: wrap;
-    justify-content: center;
-  }
-
-  .header-cart {
-    order: 2;
-  }
-
-  body.cart-open .header-cart {
-    top: 1rem;
-    right: 1rem;
-  }
-
-  .section {
-    padding: 4rem 0;
   }
 
   .locator-search-row {
     grid-template-columns: 1fr;
   }
 
+  .locator-map {
+    position: relative;
+    top: 0;
+  }
+
+  .locator-results {
+    max-height: none;
+  }
+
+  .newsletter-card {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+  }
+
+  .newsletter-copy {
+    max-width: none;
+  }
+
   .footer-inner {
     grid-template-columns: 1fr;
   }
+
+  body.cart-open .header-cart {
+    top: 1rem;
+    right: 1rem;
+  }
 }
+
+/* Small mobile */
 
 @media (max-width: 640px) {
   body {
@@ -1554,9 +1672,6 @@ body.cart-open .header-cart {
 
 /* =========================================
    SUMMERSIDE-INSPIRED PALETTE OVERRIDE
-   Warm cream + golden yellow + orange
-   With section-by-section color variation
-   Paste at bottom of your CSS
 ========================================= */
 
 :root {
@@ -1690,7 +1805,7 @@ main {
 /* product detail pages */
 
 .product-hero {
-  background: linear-gradient(180deg, #f5dfad 0%, #f8f1df 100%) !important;
+  background: transparent !important;
 }
 
 .product-image {
@@ -1700,11 +1815,7 @@ main {
 }
 
 .product-details {
-  background: linear-gradient(
-    180deg,
-    rgba(255, 255, 255, 0.18),
-    rgba(255, 255, 255, 0)
-  ) !important;
+  background: transparent !important;
 }
 
 .related-products {

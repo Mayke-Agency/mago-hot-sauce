@@ -11,6 +11,7 @@
     setupCustomCartTrigger();
     initStoreLocator();
     initNewsletterForm();
+    initMobileNav();
   });
 
   document.addEventListener("keydown", (event) => {
@@ -664,5 +665,23 @@
       .replaceAll(">", "&gt;")
       .replaceAll('"', "&quot;")
       .replaceAll("'", "&#39;");
+  }
+
+  function initMobileNav() {
+    const toggle = document.querySelector(".mobile-nav-toggle");
+    const nav = document.querySelector(".site-nav");
+
+    if (!toggle || !nav) return;
+
+    toggle.addEventListener("click", () => {
+      const isOpen = nav.classList.toggle("is-open");
+
+      toggle.classList.toggle("is-open", isOpen);
+      toggle.setAttribute("aria-expanded", String(isOpen));
+      toggle.setAttribute(
+        "aria-label",
+        isOpen ? "Close navigation" : "Open navigation",
+      );
+    });
   }
 })();
