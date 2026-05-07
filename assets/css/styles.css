@@ -974,8 +974,7 @@ a:focus-visible {
   }
 
   .locator-map {
-    position: relative;
-    top: 0;
+    display: none;
   }
 
   .locator-results {
