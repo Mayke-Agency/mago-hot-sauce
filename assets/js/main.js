@@ -25,7 +25,7 @@
       key: "roasted-habanero",
       name: "Roasted Habanero",
       href: "/roasted-habanero",
-      image: "/assets/images/flavors/roasted-hab.png",
+      image: "/assets/images/flavors/roasted-hab.webp",
       imageAlt: "Bottle of Mago Roasted Habanero hot sauce",
       kicker: "Featured Flavor",
       description:
@@ -37,7 +37,7 @@
       key: "pineapple-habanero",
       name: "Pineapple Habanero",
       href: "/pineapple-habanero",
-      image: "/assets/images/flavors/pine-hab.png",
+      image: "/assets/images/flavors/pine-hab.webp",
       imageAlt: "Bottle of Mago Pineapple Habanero hot sauce",
       kicker: "Featured Flavor",
       description:
@@ -49,7 +49,7 @@
       key: "ghost-pepper",
       name: "Ghost Pepper",
       href: "/ghost-pepper",
-      image: "/assets/images/flavors/ghost-pep.png",
+      image: "/assets/images/flavors/ghost-pep.webp",
       imageAlt: "Bottle of Mago Ghost Pepper hot sauce",
       kicker: "Featured Flavor",
       description:
@@ -61,7 +61,7 @@
       key: "roasted-verde",
       name: "Roasted Verde",
       href: "/roasted-verde",
-      image: "/assets/images/flavors/roasted-verd.png",
+      image: "/assets/images/flavors/roasted-verd.webp",
       imageAlt: "Bottle of Mago Roasted Verde hot sauce",
       kicker: "Featured Flavor",
       description:
