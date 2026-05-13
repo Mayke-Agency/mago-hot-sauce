@@ -25,7 +25,7 @@
       key: "roasted-habanero",
       name: "Roasted Habanero",
       href: "/roasted-habanero",
-      image: "/assets/images/flavors/roasted-habanero.png",
+      image: "/assets/images/flavors/roasted-hab.png",
       imageAlt: "Bottle of Mago Roasted Habanero hot sauce",
       kicker: "Featured Flavor",
       description:
@@ -37,7 +37,7 @@
       key: "pineapple-habanero",
       name: "Pineapple Habanero",
       href: "/pineapple-habanero",
-      image: "/assets/images/flavors/pineapple-habanero.png",
+      image: "/assets/images/flavors/pine-hab.png",
       imageAlt: "Bottle of Mago Pineapple Habanero hot sauce",
       kicker: "Featured Flavor",
       description:
@@ -49,7 +49,7 @@
       key: "ghost-pepper",
       name: "Ghost Pepper",
       href: "/ghost-pepper",
-      image: "/assets/images/flavors/ghost-pepper.png",
+      image: "/assets/images/flavors/ghost-pep.png",
       imageAlt: "Bottle of Mago Ghost Pepper hot sauce",
       kicker: "Featured Flavor",
       description:
@@ -61,7 +61,7 @@
       key: "roasted-verde",
       name: "Roasted Verde",
       href: "/roasted-verde",
-      image: "/assets/images/flavors/roasted-verde.png",
+      image: "/assets/images/flavors/roasted-verd.png",
       imageAlt: "Bottle of Mago Roasted Verde hot sauce",
       kicker: "Featured Flavor",
       description:
@@ -697,4 +697,16 @@
       );
     });
   }
+
+  const heroSlides = document.querySelectorAll(".hero-slide");
+
+  let heroIndex = 0;
+
+  setInterval(() => {
+    heroSlides[heroIndex].classList.remove("active");
+
+    heroIndex = (heroIndex + 1) % heroSlides.length;
+
+    heroSlides[heroIndex].classList.add("active");
+  }, 4000);
 })();

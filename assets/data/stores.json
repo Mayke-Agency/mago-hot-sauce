@@ -15,7 +15,7 @@
     "address": "103 E 17th St",
     "city": "Costa Mesa",
     "state": "CA",
-    "zip": "92626",
+    "zip": "92627",
     "lat": 33.6346,
     "lng": -117.9187,
     "phone": "(949) 548-6328",
@@ -30,6 +30,28 @@
     "lat": 33.5933,
     "lng": -117.8465,
     "phone": "(949) 715-3383",
+    "products": []
+  },
+  {
+    "name": "The Butchery - Del Mar",
+    "address": "3720 Caminito Ct",
+    "city": "San Diego",
+    "state": "CA",
+    "zip": "92130",
+    "lat": 32.9557,
+    "lng": -117.2304,
+    "phone": "",
+    "products": []
+  },
+  {
+    "name": "The Butchery - Manhattan Beach",
+    "address": "1121 Artesia Blvd",
+    "city": "Manhattan Beach",
+    "state": "CA",
+    "zip": "90266",
+    "lat": 33.8726,
+    "lng": -118.3927,
+    "phone": "",
     "products": []
   },
   {
@@ -66,14 +88,47 @@
     "products": []
   },
   {
-    "name": "Hobie Surf Shop",
+    "name": "Hobie Surf Shop - Dana Point",
     "address": "34174 Pacific Coast Hwy",
     "city": "Dana Point",
     "state": "CA",
     "zip": "92629",
     "lat": 33.4671,
     "lng": -117.6992,
-    "phone": "",
+    "phone": "(949) 496-2366",
+    "products": []
+  },
+  {
+    "name": "Hobie Surf Shop - Laguna Beach",
+    "address": "294 Forest Ave",
+    "city": "Laguna Beach",
+    "state": "CA",
+    "zip": "92651",
+    "lat": 33.5423,
+    "lng": -117.7831,
+    "phone": "(949) 497-3304",
+    "products": []
+  },
+  {
+    "name": "Hobie Surf Shop - San Juan Capistrano",
+    "address": "31896 Paseo Adelanto Suite 106",
+    "city": "San Juan Capistrano",
+    "state": "CA",
+    "zip": "92675",
+    "lat": 33.5012,
+    "lng": -117.662,
+    "phone": "(949) 503-3322",
+    "products": []
+  },
+  {
+    "name": "Hobie Surf Shop - San Clemente",
+    "address": "167 Avenida Del Mar",
+    "city": "San Clemente",
+    "state": "CA",
+    "zip": "92672",
+    "lat": 33.4267,
+    "lng": -117.6128,
+    "phone": "(949) 542-3355",
     "products": []
   },
   {
@@ -100,35 +155,35 @@
   },
   {
     "name": "Buena Vista Market",
-    "address": "3466 N El Camino Real",
-    "city": "San Clemente",
+    "address": "34065 La Plaza",
+    "city": "Dana Point",
     "state": "CA",
-    "zip": "92672",
-    "lat": 33.4637,
-    "lng": -117.6534,
+    "zip": "92629",
+    "lat": 33.4669,
+    "lng": -117.6981,
     "phone": "",
     "products": []
   },
   {
-    "name": "Irvine Ranch Market",
-    "address": "2651 Irvine Ave",
-    "city": "Costa Mesa",
+    "name": "Irvine Ranch Market - Marbella",
+    "address": "31109 Rancho Viejo Rd Unit A",
+    "city": "San Juan Capistrano",
     "state": "CA",
-    "zip": "92627",
-    "lat": 33.6472,
-    "lng": -117.9223,
-    "phone": "",
+    "zip": "92675",
+    "lat": 33.5015,
+    "lng": -117.6622,
+    "phone": "(949) 248-1067",
     "products": []
   },
   {
     "name": "Bardega",
-    "address": "237 Ocean Ave",
-    "city": "Laguna Beach",
+    "address": "24781 Alicia Pkwy Suite A",
+    "city": "Laguna Hills",
     "state": "CA",
-    "zip": "92651",
-    "lat": 33.5427,
-    "lng": -117.7823,
-    "phone": "",
+    "zip": "92653",
+    "lat": 33.6107,
+    "lng": -117.7074,
+    "phone": "(949) 484-9980",
     "products": []
   },
   {
@@ -150,17 +205,6 @@
     "zip": "92629",
     "lat": 33.466,
     "lng": -117.6985,
-    "phone": "",
-    "products": []
-  },
-  {
-    "name": "Brooklyn City Pizzeria & Market",
-    "address": "2000 S El Camino Real",
-    "city": "San Clemente",
-    "state": "CA",
-    "zip": "92672",
-    "lat": 33.4095,
-    "lng": -117.609,
     "phone": "",
     "products": []
   },
@@ -297,6 +341,28 @@
     "products": []
   },
   {
+    "name": "Mercado Laguna",
+    "address": "912 N Coast Hwy",
+    "city": "Laguna Beach",
+    "state": "CA",
+    "zip": "92651",
+    "lat": 33.5535,
+    "lng": -117.7986,
+    "phone": "",
+    "products": []
+  },
+  {
+    "name": "Mercado Costa Mesa",
+    "address": "234 E 17th St Suite 117",
+    "city": "Costa Mesa",
+    "state": "CA",
+    "zip": "92627",
+    "lat": 33.6343,
+    "lng": -117.9187,
+    "phone": "",
+    "products": []
+  },
+  {
     "name": "Pacific Ranch Market",
     "address": "754 N Tustin St",
     "city": "Orange",
@@ -304,6 +370,17 @@
     "zip": "92867",
     "lat": 33.7992,
     "lng": -117.8366,
+    "phone": "",
+    "products": []
+  },
+  {
+    "name": "STORE",
+    "address": "380 Glenneyre St",
+    "city": "Laguna Beach",
+    "state": "CA",
+    "zip": "92651",
+    "lat": 33.5429,
+    "lng": -117.7838,
     "phone": "",
     "products": []
   }
