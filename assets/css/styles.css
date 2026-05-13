@@ -839,57 +839,6 @@ a:focus-visible {
   margin-top: 0;
 }
 
-.swipe-cue {
-  display: none;
-}
-
-@media (max-width: 860px) {
-  .swipe-cue {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 0.45rem;
-
-    margin: 1.25rem 0 2rem;
-
-    font-size: 0.78rem;
-    font-weight: 800;
-    letter-spacing: 0.12em;
-    text-transform: uppercase;
-
-    color: var(--color-rust);
-
-    animation: swipeCuePulse 1.8s ease-in-out infinite;
-  }
-
-  .swipe-cue-arrow {
-    display: inline-block;
-    animation: swipeCueArrow 1.2s ease-in-out infinite;
-  }
-}
-
-@keyframes swipeCuePulse {
-  0%,
-  100% {
-    opacity: 0.55;
-  }
-
-  50% {
-    opacity: 1;
-  }
-}
-
-@keyframes swipeCueArrow {
-  0%,
-  100% {
-    transform: translateX(0);
-  }
-
-  50% {
-    transform: translateX(6px);
-  }
-}
-
 /* product grid */
 
 .products-section {
@@ -1795,13 +1744,38 @@ body.cart-open .header-cart {
   }
 
   .flavor-carousel {
-    grid-template-columns: 1fr;
+    grid-template-columns: 0.58fr 1fr 0.58fr;
+    gap: 0.25rem;
     min-height: auto;
-    padding: 2rem 1.25rem 1rem;
+    padding: 2rem 0.25rem 1rem;
+    overflow: hidden;
   }
 
   .flavor-card-side {
+    display: block;
+    opacity: 0.35;
+    padding-top: 3rem;
+    transform: translateY(6px) scale(0.9);
+  }
+
+  .flavor-card-side:first-child {
+    transform: translateX(-30%) translateY(6px) scale(0.9) rotate(-3deg);
+  }
+
+  .flavor-card-side:last-child {
+    transform: translateX(30%) translateY(6px) scale(0.9) rotate(3deg);
+  }
+
+  .flavor-card-side img {
+    max-height: 360px;
+  }
+
+  .flavor-card-side h3 {
     display: none;
+  }
+
+  .flavor-card-featured img {
+    max-height: 480px;
   }
 
   .flavor-card-featured img {
@@ -1907,6 +1881,37 @@ body.cart-open .header-cart {
   .page-hero-media img,
   .section-media img {
     min-height: 320px;
+  }
+}
+
+@media (max-width: 860px) {
+  .flavor-card-content {
+    width: 100vw;
+    max-width: none;
+
+    margin-left: calc(50% - 50vw);
+    margin-right: calc(50% - 50vw);
+
+    padding-inline: 1rem;
+  }
+
+  .flavor-card-content p {
+    max-width: none;
+  }
+
+  .carousel-actions {
+    width: 100vw;
+
+    margin-left: calc(50% - 50vw);
+    margin-right: calc(50% - 50vw);
+
+    padding-inline: 1rem;
+  }
+
+  .carousel-actions .btn,
+  .carousel-actions .shopify-button-wrapper {
+    width: 100%;
+    max-width: none;
   }
 }
 
