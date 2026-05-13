@@ -1884,37 +1884,6 @@ body.cart-open .header-cart {
   }
 }
 
-@media (max-width: 860px) {
-  .flavor-card-content {
-    width: 100vw;
-    max-width: none;
-
-    margin-left: calc(50% - 50vw);
-    margin-right: calc(50% - 50vw);
-
-    padding-inline: 1rem;
-  }
-
-  .flavor-card-content p {
-    max-width: none;
-  }
-
-  .carousel-actions {
-    width: 100vw;
-
-    margin-left: calc(50% - 50vw);
-    margin-right: calc(50% - 50vw);
-
-    padding-inline: 1rem;
-  }
-
-  .carousel-actions .btn,
-  .carousel-actions .shopify-button-wrapper {
-    width: 100%;
-    max-width: none;
-  }
-}
-
 /* =========================================
    SUMMERSIDE-INSPIRED PALETTE OVERRIDE
 ========================================= */
