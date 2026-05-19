@@ -14,7 +14,7 @@ export default async function handler(req, res) {
 
     const timeElapsed = Date.now() - Number(formStarted);
 
-    if (!formStarted || Number.isNaN(timeElapsed) || timeElapsed < 2500) {
+    if (formStarted && !Number.isNaN(timeElapsed) && timeElapsed < 1200) {
       return res.status(200).json({ success: true });
     }
 
