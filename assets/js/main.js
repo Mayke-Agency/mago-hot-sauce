@@ -31,7 +31,7 @@
       description:
         "Smoky, bold, and built to wake up tacos, eggs, burritos, burgers, and more.",
       shopifyHandle: "roasted-habanero-home",
-      heat: "Medium-Hot",
+      heat: "Mild-Medium",
     },
     {
       key: "pineapple-habanero",
@@ -43,7 +43,7 @@
       description:
         "Sweet up front, heat on the finish, and made to light up tacos, shrimp, grilled chicken, and anything that needs a little extra.",
       shopifyHandle: "pineapple-habanero-home",
-      heat: "Medium",
+      heat: "Medium-Hot",
     },
     {
       key: "ghost-pepper",
@@ -67,7 +67,7 @@
       description:
         "Fresh, easy, and made for everyday use on eggs, tacos, rice bowls, and everything else.",
       shopifyHandle: "roasted-verde-home",
-      heat: "Mild-Medium",
+      heat: "Medium",
     },
   ];
 
