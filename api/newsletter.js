@@ -6,16 +6,16 @@ export default async function handler(req, res) {
   }
 
   try {
-    const { name, email, company } = req.body || {};
+    const { name, email, company, formStarted } = req.body || {};
 
-    if (company) {
+    if (company && company.trim() !== "") {
       return res.status(200).json({ success: true });
     }
 
     const timeElapsed = Date.now() - Number(formStarted);
 
-    if (timeElapsed < 2500) {
-      return res.status(200).json({ ok: true });
+    if (!formStarted || Number.isNaN(timeElapsed) || timeElapsed < 2500) {
+      return res.status(200).json({ success: true });
     }
 
     const store = process.env.SHOPIFY_STORE_DOMAIN;
