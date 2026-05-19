@@ -600,7 +600,7 @@
           )}" data-store-index="${index}">
             Open in Maps
           </button>
-          </a>
+          
         </article>
       `;
     }
@@ -618,7 +618,11 @@
 
   function initNewsletterForm() {
     const newsletterForm = document.getElementById("newsletter-form");
-    if (!newsletterForm) return;
+    const formStartedInput = document.getElementById("formStarted");
+
+    if (!newsletterForm || !formStartedInput) return;
+
+    formStartedInput.value = Date.now();
 
     newsletterForm.addEventListener("submit", async (event) => {
       event.preventDefault();

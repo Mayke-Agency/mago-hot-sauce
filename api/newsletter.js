@@ -12,6 +12,12 @@ export default async function handler(req, res) {
       return res.status(200).json({ success: true });
     }
 
+    const timeElapsed = Date.now() - Number(formStarted);
+
+    if (timeElapsed < 2500) {
+      return res.status(200).json({ ok: true });
+    }
+
     const store = process.env.SHOPIFY_STORE_DOMAIN;
     const clientId = process.env.SHOPIFY_CLIENT_ID;
     const clientSecret = process.env.SHOPIFY_CLIENT_SECRET;
