@@ -8,7 +8,8 @@
     "lat": 33.5001,
     "lng": -117.7405,
     "phone": "",
-    "products": []
+    "products": [],
+    "type": "both"
   },
   {
     "name": "The Butchery - Costa Mesa",
@@ -74,7 +75,8 @@
     "lat": 33.427,
     "lng": -117.613,
     "phone": "",
-    "products": []
+    "products": [],
+    "type": "both"
   },
   {
     "name": "Hobie Surf Shop - Dana Point",
@@ -129,7 +131,8 @@
     "lat": 33.4669,
     "lng": -117.6981,
     "phone": "",
-    "products": []
+    "products": [],
+    "type": "both"
   },
   {
     "name": "Spigot Liquor",
@@ -195,7 +198,8 @@
     "lat": 33.466,
     "lng": -117.6985,
     "phone": "",
-    "products": []
+    "products": [],
+    "type": "restaurant"
   },
   {
     "name": "Organic Tree",
@@ -261,7 +265,8 @@
     "lat": 33.5315,
     "lng": -117.7768,
     "phone": "",
-    "products": []
+    "products": [],
+    "type": "both"
   },
   {
     "name": "Tea & Turmeric",
@@ -371,7 +376,8 @@
     "lat": null,
     "lng": null,
     "phone": "",
-    "products": []
+    "products": [],
+    "type": "both"
   },
   {
     "name": "Coast Hardware",
@@ -394,7 +400,7 @@
     "lng": null,
     "phone": "",
     "products": [],
-    "type": "restaurant"
+    "type": "both"
   },
   {
     "name": "Beach Hut Deli",
@@ -406,7 +412,7 @@
     "lng": null,
     "phone": "",
     "products": [],
-    "type": "restaurant"
+    "type": "both"
   },
   {
     "name": "Beach Hut Deli",
@@ -418,7 +424,7 @@
     "lng": null,
     "phone": "",
     "products": [],
-    "type": "restaurant"
+    "type": "both"
   },
   {
     "name": "Cali Costa",
@@ -430,19 +436,7 @@
     "lng": null,
     "phone": "",
     "products": [],
-    "type": "restaurant"
-  },
-  {
-    "name": "Coast Hardware",
-    "address": "240 Broadway St",
-    "city": "Laguna Beach",
-    "state": "CA",
-    "zip": "92651",
-    "lat": null,
-    "lng": null,
-    "phone": "",
-    "products": [],
-    "type": "restaurant"
+    "type": "both"
   },
   {
     "name": "Irvine Ranch Market",
@@ -454,7 +448,7 @@
     "lng": null,
     "phone": "",
     "products": [],
-    "type": "restaurant"
+    "type": "both"
   },
   {
     "name": "Jedidiah Coffee",
@@ -478,7 +472,7 @@
     "lng": null,
     "phone": "",
     "products": [],
-    "type": "restaurant"
+    "type": "both"
   },
   {
     "name": "Siesel's Meats & Deli",
@@ -490,7 +484,7 @@
     "lng": null,
     "phone": "",
     "products": [],
-    "type": "restaurant"
+    "type": "both"
   },
   {
     "name": "Small's Smash Club",
@@ -502,7 +496,7 @@
     "lng": null,
     "phone": "",
     "products": [],
-    "type": "restaurant"
+    "type": "both"
   },
   {
     "name": "Small's Smash Club",
@@ -514,7 +508,7 @@
     "lng": null,
     "phone": "",
     "products": [],
-    "type": "restaurant"
+    "type": "both"
   },
   {
     "name": "Stadium Brewery",
@@ -526,7 +520,7 @@
     "lng": null,
     "phone": "",
     "products": [],
-    "type": "restaurant"
+    "type": "both"
   },
   {
     "name": "Sunsets",
@@ -538,7 +532,7 @@
     "lng": null,
     "phone": "",
     "products": [],
-    "type": "restaurant"
+    "type": "both"
   },
   {
     "name": "Lobster Shack",
@@ -550,6 +544,6 @@
     "lng": null,
     "phone": "",
     "products": [],
-    "type": "restaurant"
+    "type": "both"
   }
 ]

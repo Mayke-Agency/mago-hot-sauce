@@ -560,11 +560,14 @@
     });
 
     function getActiveLocations() {
-      return stores.filter((store) => (store.type || "retail") === activeType);
+      return stores.filter((store) => {
+        const type = store.type || "retail";
+        return type === activeType || type === "both";
+      });
     }
 
     function renderStores(list) {
-      const locationLabel = activeType === "restaurant" ? "Restaurants" : "Retail Locations";
+      const locationLabel = activeType === "restaurant" ? "Where to Try" : "Where to Buy";
       if (!list.length) {
         results.innerHTML = `
           <h2>${locationLabel}</h2>
@@ -599,10 +602,11 @@
 
     function buildStoreCard(store, index) {
       const products = Array.isArray(store.products) ? store.products : [];
+      const locationType = activeType === "restaurant" ? "Restaurant" : "Retail Store";
 
       return `
         <article class="store-card">
-          <p class="store-type">${store.type === "restaurant" ? "Restaurant" : "Retail Store"}</p>
+          <p class="store-type">${locationType}</p>
           <h3>${escapeHtml(store.name || "Retail Location")}</h3>
           <p>${escapeHtml(store.address || "")}</p>
           <p>
