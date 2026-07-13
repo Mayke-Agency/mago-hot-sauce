@@ -491,10 +491,12 @@
     const input = document.querySelector("#store-search");
     const results = document.querySelector(".locator-results");
     const map = document.querySelector(".locator-map iframe");
+    const toggleButtons = document.querySelectorAll("[data-location-type]");
 
     if (!form || !input || !results || !map) return;
 
     let stores = [];
+    let activeType = "retail";
 
     fetch("/assets/data/stores.json")
       .then((response) => {
@@ -503,7 +505,7 @@
       })
       .then((data) => {
         stores = Array.isArray(data) ? data : [];
-        renderStores(stores);
+        renderStores(getActiveLocations());
       })
       .catch((error) => {
         console.error(error);
@@ -517,13 +519,14 @@
       event.preventDefault();
 
       const query = input.value.trim().toLowerCase();
+      const activeLocations = getActiveLocations();
 
       if (!query) {
-        renderStores(stores);
+        renderStores(activeLocations);
         return;
       }
 
-      const matches = stores.filter((store) => {
+      const matches = activeLocations.filter((store) => {
         const searchable = [
           store.name,
           store.address,
@@ -543,17 +546,35 @@
       if (matches[0]) updateMap(matches[0]);
     });
 
+    toggleButtons.forEach((button) => {
+      button.addEventListener("click", () => {
+        activeType = button.dataset.locationType || "retail";
+        toggleButtons.forEach((item) => {
+          const isActive = item === button;
+          item.classList.toggle("is-active", isActive);
+          item.setAttribute("aria-pressed", String(isActive));
+        });
+        input.value = "";
+        renderStores(getActiveLocations());
+      });
+    });
+
+    function getActiveLocations() {
+      return stores.filter((store) => (store.type || "retail") === activeType);
+    }
+
     function renderStores(list) {
+      const locationLabel = activeType === "restaurant" ? "Restaurants" : "Retail Locations";
       if (!list.length) {
         results.innerHTML = `
-          <h2>Retail Locations</h2>
+          <h2>${locationLabel}</h2>
           <p>No locations found. Try searching by city, ZIP code, or store name.</p>
         `;
         return;
       }
 
       results.innerHTML = `
-        <h2>Retail Locations</h2>
+        <h2>${locationLabel}</h2>
         <div class="store-results-grid">
           ${list.map(buildStoreCard).join("")}
         </div>
@@ -581,6 +602,7 @@
 
       return `
         <article class="store-card">
+          <p class="store-type">${store.type === "restaurant" ? "Restaurant" : "Retail Store"}</p>
           <h3>${escapeHtml(store.name || "Retail Location")}</h3>
           <p>${escapeHtml(store.address || "")}</p>
           <p>

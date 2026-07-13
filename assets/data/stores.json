@@ -55,17 +55,6 @@
     "products": []
   },
   {
-    "name": "Ramos House Cafe",
-    "address": "31752 Los Rios St",
-    "city": "San Juan Capistrano",
-    "state": "CA",
-    "zip": "92675",
-    "lat": 33.5024,
-    "lng": -117.6626,
-    "phone": "",
-    "products": []
-  },
-  {
     "name": "El Toro Gourmet Meats",
     "address": "23522 El Toro Rd",
     "city": "Lake Forest",
@@ -275,17 +264,6 @@
     "products": []
   },
   {
-    "name": "The Cliff Restaurant",
-    "address": "577 S Coast Hwy",
-    "city": "Laguna Beach",
-    "state": "CA",
-    "zip": "92651",
-    "lat": 33.5355,
-    "lng": -117.7801,
-    "phone": "",
-    "products": []
-  },
-  {
     "name": "Tea & Turmeric",
     "address": "1175 S Coast Hwy",
     "city": "Laguna Beach",
@@ -383,5 +361,195 @@
     "lng": -117.7838,
     "phone": "",
     "products": []
+  },
+  {
+    "name": "Abode",
+    "address": "1200 South Coast Highway, Suite 106",
+    "city": "Laguna Beach",
+    "state": "CA",
+    "zip": "92651",
+    "lat": null,
+    "lng": null,
+    "phone": "",
+    "products": []
+  },
+  {
+    "name": "Coast Hardware",
+    "address": "240 Broadway St",
+    "city": "Laguna Beach",
+    "state": "CA",
+    "zip": "92651",
+    "lat": null,
+    "lng": null,
+    "phone": "",
+    "products": []
+  },
+  {
+    "name": "Beach Hut Deli",
+    "address": "1844 N El Camino Real",
+    "city": "San Clemente",
+    "state": "CA",
+    "zip": "92672",
+    "lat": null,
+    "lng": null,
+    "phone": "",
+    "products": [],
+    "type": "restaurant"
+  },
+  {
+    "name": "Beach Hut Deli",
+    "address": "26051 La Paz Road, Suite 180",
+    "city": "Mission Viejo",
+    "state": "CA",
+    "zip": "92691",
+    "lat": null,
+    "lng": null,
+    "phone": "",
+    "products": [],
+    "type": "restaurant"
+  },
+  {
+    "name": "Beach Hut Deli",
+    "address": "19025 Beach Blvd",
+    "city": "Huntington Beach",
+    "state": "CA",
+    "zip": "92648",
+    "lat": null,
+    "lng": null,
+    "phone": "",
+    "products": [],
+    "type": "restaurant"
+  },
+  {
+    "name": "Cali Costa",
+    "address": "34195 Pacific Coast Highway",
+    "city": "Dana Point",
+    "state": "CA",
+    "zip": "92629",
+    "lat": null,
+    "lng": null,
+    "phone": "",
+    "products": [],
+    "type": "restaurant"
+  },
+  {
+    "name": "Coast Hardware",
+    "address": "240 Broadway St",
+    "city": "Laguna Beach",
+    "state": "CA",
+    "zip": "92651",
+    "lat": null,
+    "lng": null,
+    "phone": "",
+    "products": [],
+    "type": "restaurant"
+  },
+  {
+    "name": "Irvine Ranch Market",
+    "address": "2651 Irvine Ave",
+    "city": "Costa Mesa",
+    "state": "CA",
+    "zip": "92627",
+    "lat": null,
+    "lng": null,
+    "phone": "",
+    "products": [],
+    "type": "restaurant"
+  },
+  {
+    "name": "Jedidiah Coffee",
+    "address": "397 North Coast Highway",
+    "city": "Laguna Beach",
+    "state": "CA",
+    "zip": "92651",
+    "lat": null,
+    "lng": null,
+    "phone": "",
+    "products": [],
+    "type": "restaurant"
+  },
+  {
+    "name": "OC Local Taproom",
+    "address": "30100 Town Center Drive, Suite A",
+    "city": "Laguna Niguel",
+    "state": "CA",
+    "zip": "92677",
+    "lat": null,
+    "lng": null,
+    "phone": "",
+    "products": [],
+    "type": "restaurant"
+  },
+  {
+    "name": "Siesel's Meats & Deli",
+    "address": "4131 Ashton Street",
+    "city": "San Diego",
+    "state": "CA",
+    "zip": "92109",
+    "lat": null,
+    "lng": null,
+    "phone": "",
+    "products": [],
+    "type": "restaurant"
+  },
+  {
+    "name": "Small's Smash Club",
+    "address": "641 Camino de los Mares, Suite C100",
+    "city": "San Clemente",
+    "state": "CA",
+    "zip": "92673",
+    "lat": null,
+    "lng": null,
+    "phone": "",
+    "products": [],
+    "type": "restaurant"
+  },
+  {
+    "name": "Small's Smash Club",
+    "address": "2794 Coast Hwy",
+    "city": "Laguna Beach",
+    "state": "CA",
+    "zip": "92651",
+    "lat": null,
+    "lng": null,
+    "phone": "",
+    "products": [],
+    "type": "restaurant"
+  },
+  {
+    "name": "Stadium Brewery",
+    "address": "26731 Aliso Creek Rd",
+    "city": "Aliso Viejo",
+    "state": "CA",
+    "zip": "92656",
+    "lat": null,
+    "lng": null,
+    "phone": "",
+    "products": [],
+    "type": "restaurant"
+  },
+  {
+    "name": "Sunsets",
+    "address": "34700 Coast Hwy, Suite 107",
+    "city": "Capistrano Beach",
+    "state": "CA",
+    "zip": "92624",
+    "lat": null,
+    "lng": null,
+    "phone": "",
+    "products": [],
+    "type": "restaurant"
+  },
+  {
+    "name": "Lobster Shack",
+    "address": "30100 Town Center Dr, Suite J",
+    "city": "Laguna Niguel",
+    "state": "CA",
+    "zip": "92677",
+    "lat": null,
+    "lng": null,
+    "phone": "",
+    "products": [],
+    "type": "restaurant"
   }
 ]

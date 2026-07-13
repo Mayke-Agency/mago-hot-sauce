@@ -1129,6 +1129,27 @@ a:focus-visible {
   gap: 0.8rem;
 }
 
+.locator-toggle {
+  display: inline-flex;
+  margin-bottom: 1rem;
+  border: 1px solid var(--color-border);
+  background: rgba(255, 255, 255, 0.3);
+}
+
+.locator-toggle-button {
+  padding: 0.7rem 1rem;
+  color: var(--color-text);
+  background: transparent;
+  border: 0;
+  font-weight: 800;
+}
+
+.locator-toggle-button.is-active,
+.locator-toggle-button:hover {
+  color: var(--color-white);
+  background: var(--color-rust);
+}
+
 .locator-search input {
   min-height: 56px;
   padding: 0 1rem;
@@ -1184,10 +1205,23 @@ a:focus-visible {
   margin-bottom: 0.5rem;
 }
 
+.store-type {
+  margin-bottom: 0.35rem;
+  color: var(--color-olive);
+  font-size: 0.78rem;
+  font-weight: 800;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+}
+
 .store-products {
   font-size: 0.9rem;
   font-weight: 800;
   color: var(--color-olive);
+}
+
+.find-mago {
+  padding-bottom: 1rem;
 }
 
 /* =========================================
@@ -1587,6 +1621,7 @@ body.cart-open .header-cart {
   .locator-map iframe {
     height: 520px;
   }
+
 }
 
 /* =========================================
@@ -1605,6 +1640,7 @@ body.cart-open .header-cart {
   .locator-results {
     max-height: none;
   }
+
 }
 
 @media (max-width: 860px) {
