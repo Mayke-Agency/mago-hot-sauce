@@ -377,7 +377,7 @@
     "lng": null,
     "phone": "",
     "products": [],
-    "type": "both"
+    "type": "retail"
   },
   {
     "name": "Coast Hardware",
@@ -400,7 +400,7 @@
     "lng": null,
     "phone": "",
     "products": [],
-    "type": "both"
+    "type": "restaurant"
   },
   {
     "name": "Beach Hut Deli",
@@ -412,7 +412,7 @@
     "lng": null,
     "phone": "",
     "products": [],
-    "type": "both"
+    "type": "restaurant"
   },
   {
     "name": "Beach Hut Deli",
@@ -424,7 +424,7 @@
     "lng": null,
     "phone": "",
     "products": [],
-    "type": "both"
+    "type": "restaurant"
   },
   {
     "name": "Cali Costa",
@@ -436,7 +436,7 @@
     "lng": null,
     "phone": "",
     "products": [],
-    "type": "both"
+    "type": "restaurant"
   },
   {
     "name": "Irvine Ranch Market",
@@ -448,7 +448,7 @@
     "lng": null,
     "phone": "",
     "products": [],
-    "type": "both"
+    "type": "retail"
   },
   {
     "name": "Jedidiah Coffee",
@@ -484,7 +484,7 @@
     "lng": null,
     "phone": "",
     "products": [],
-    "type": "both"
+    "type": "retail"
   },
   {
     "name": "Small's Smash Club",
@@ -496,7 +496,7 @@
     "lng": null,
     "phone": "",
     "products": [],
-    "type": "both"
+    "type": "restaurant"
   },
   {
     "name": "Small's Smash Club",
@@ -508,7 +508,7 @@
     "lng": null,
     "phone": "",
     "products": [],
-    "type": "both"
+    "type": "restaurant"
   },
   {
     "name": "Stadium Brewery",
@@ -520,7 +520,7 @@
     "lng": null,
     "phone": "",
     "products": [],
-    "type": "both"
+    "type": "restaurant"
   },
   {
     "name": "Sunsets",
@@ -532,7 +532,7 @@
     "lng": null,
     "phone": "",
     "products": [],
-    "type": "both"
+    "type": "restaurant"
   },
   {
     "name": "Lobster Shack",
@@ -544,6 +544,42 @@
     "lng": null,
     "phone": "",
     "products": [],
-    "type": "both"
+    "type": "restaurant"
+  },
+  {
+    "name": "Ramos House Cafe",
+    "address": "31752 Los Rios St",
+    "city": "San Juan Capistrano",
+    "state": "CA",
+    "zip": "92675",
+    "lat": null,
+    "lng": null,
+    "phone": "",
+    "products": [],
+    "type": "restaurant"
+  },
+  {
+    "name": "The Cliff Restaurant",
+    "address": "577 S Coast Hwy",
+    "city": "Laguna Beach",
+    "state": "CA",
+    "zip": "92651",
+    "lat": null,
+    "lng": null,
+    "phone": "",
+    "products": [],
+    "type": "restaurant"
+  },
+  {
+    "name": "Carlos Family Restaurant & Cantina",
+    "address": "34224 Pacific Coast Hwy",
+    "city": "Dana Point",
+    "state": "CA",
+    "zip": "92629",
+    "lat": null,
+    "lng": null,
+    "phone": "",
+    "products": [],
+    "type": "restaurant"
   }
 ]
