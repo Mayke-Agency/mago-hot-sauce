@@ -581,5 +581,29 @@
     "phone": "",
     "products": [],
     "type": "restaurant"
+  },
+  {
+    "name": "Pacific Post",
+    "address": "34193 Golden Lantern, Suite C",
+    "city": "Dana Point",
+    "state": "CA",
+    "zip": "92629",
+    "lat": null,
+    "lng": null,
+    "phone": "",
+    "products": [],
+    "type": "retail"
+  },
+  {
+    "name": "Bronx Sandwich Company",
+    "address": "28201 Marguerite Pkwy",
+    "city": "Mission Viejo",
+    "state": "CA",
+    "zip": "92692",
+    "lat": null,
+    "lng": null,
+    "phone": "",
+    "products": [],
+    "type": "restaurant"
   }
 ]
