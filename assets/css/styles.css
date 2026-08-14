@@ -977,8 +977,8 @@ a:focus-visible {
   transition: transform var(--transition);
 }
 
-.product-card-image img[src*="flavors/"]:not([src$="mago-pumpkin.png"]) {
-  max-height: 520px;
+.product-card-image img[src$="mago-pumpkin.png"] {
+  scale: 0.72;
 }
 
 .product-card-image-swap {
@@ -1995,10 +1995,6 @@ body.cart-open .header-cart {
 
   .product-card-image img {
     max-height: 300px;
-  }
-
-  .product-card-image img[src*="flavors/"]:not([src$="mago-pumpkin.png"]) {
-    max-height: 440px;
   }
 
   .product-image {
