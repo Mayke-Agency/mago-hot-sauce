@@ -1188,17 +1188,24 @@ a:focus-visible {
 }
 
 .related-product-card a {
-  display: block;
+  display: grid;
+  grid-template-rows: 240px auto;
+  gap: 1rem;
   padding: 1.5rem;
   text-align: center;
 }
 
 .related-product-card img {
   max-height: 240px;
-  margin: 0 auto 1rem;
+  margin: auto;
+  align-self: center;
   object-fit: contain;
   filter: drop-shadow(0 18px 28px rgba(0, 0, 0, 0.15));
   transition: transform var(--transition);
+}
+
+.related-product-card h3 {
+  margin: 0;
 }
 
 .related-product-card img[src$="mago-pumpkin.png"] {
