@@ -1015,6 +1015,7 @@ a:focus-visible {
 
 .product-card-image-swap .product-image-back,
 .product-image-swap .product-image-back {
+  scale: 1.17;
   opacity: 0;
   transform: translateY(4px) scale(0.99);
 }
@@ -1198,6 +1199,10 @@ a:focus-visible {
   object-fit: contain;
   filter: drop-shadow(0 18px 28px rgba(0, 0, 0, 0.15));
   transition: transform var(--transition);
+}
+
+.related-product-card img[src$="mago-pumpkin.png"] {
+  scale: 0.72;
 }
 
 /* =========================================
