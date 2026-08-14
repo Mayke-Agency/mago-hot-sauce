@@ -14,6 +14,11 @@
       "destination": "/pineapple-habanero.html"
     },
     { "source": "/shop/ghost-pepper", "destination": "/ghost-pepper.html" },
-    { "source": "/shop/roasted-verde", "destination": "/roasted-verde.html" }
+    { "source": "/shop/roasted-verde", "destination": "/roasted-verde.html" },
+    { "source": "/pumpkin-rum", "destination": "/pumpkin-rum.html" },
+    {
+      "source": "/black-short-sleeve-t-shirt",
+      "destination": "/black-short-sleeve-t-shirt.html"
+    }
   ]
 }

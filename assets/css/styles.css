@@ -1435,6 +1435,100 @@ a:focus-visible {
    SHOPIFY
 ========================================= */
 
+body.seasonal-modal-open {
+  overflow: hidden;
+}
+
+.seasonal-modal {
+  position: fixed;
+  z-index: 1000;
+  inset: 0;
+  display: grid;
+  place-items: center;
+  padding: 1rem;
+}
+
+.seasonal-modal[hidden] {
+  display: none;
+}
+
+.seasonal-modal-backdrop {
+  position: absolute;
+  inset: 0;
+  background: rgba(28, 27, 24, 0.64);
+  backdrop-filter: blur(4px);
+}
+
+.seasonal-modal-dialog {
+  position: relative;
+  z-index: 1;
+  display: grid;
+  grid-template-columns: minmax(190px, 0.72fr) minmax(280px, 1fr);
+  width: min(100%, 760px);
+  max-height: calc(100vh - 2rem);
+  overflow: auto;
+  background: var(--color-cream);
+  box-shadow: var(--shadow-lg);
+}
+
+.seasonal-modal-image {
+  display: grid;
+  min-height: 400px;
+  padding: 2rem;
+  place-items: center;
+  background: var(--color-yellow-light);
+}
+
+.seasonal-modal-image img {
+  width: 100%;
+  max-width: 250px;
+  max-height: 420px;
+  object-fit: contain;
+  filter: drop-shadow(0 16px 18px rgba(28, 27, 24, 0.18));
+}
+
+.seasonal-modal-content {
+  align-self: center;
+  padding: clamp(2rem, 5vw, 4rem);
+}
+
+.seasonal-modal-content h2 {
+  margin: 0.25rem 0 1rem;
+}
+
+.seasonal-modal-content > p:last-of-type {
+  max-width: 32rem;
+  margin-bottom: 0;
+}
+
+.seasonal-modal-close {
+  position: absolute;
+  z-index: 2;
+  top: 0.75rem;
+  right: 0.75rem;
+  display: grid;
+  width: 2.5rem;
+  height: 2.5rem;
+  padding: 0;
+  place-items: center;
+  color: var(--color-ink);
+  font-size: 2rem;
+  line-height: 1;
+  background: var(--color-cream);
+  border: 1px solid rgba(28, 27, 24, 0.18);
+  border-radius: 50%;
+  cursor: pointer;
+}
+
+.seasonal-modal-close:hover {
+  background: var(--color-yellow-light);
+}
+
+.seasonal-modal .shopify-button-wrapper {
+  justify-content: flex-start;
+  margin-top: 1.5rem;
+}
+
 .shopify-button-wrapper {
   display: flex;
   justify-content: center;
@@ -2016,6 +2110,34 @@ body.cart-open .header-cart {
   .hero-media {
     min-height: 320px;
     height: 320px;
+  }
+
+  .seasonal-modal {
+    padding: 0.75rem;
+  }
+
+  .seasonal-modal-dialog {
+    grid-template-columns: 1fr;
+    max-height: calc(100vh - 1.5rem);
+  }
+
+  .seasonal-modal-image {
+    min-height: 220px;
+    padding: 1rem 3.5rem 1rem 1rem;
+  }
+
+  .seasonal-modal-image img {
+    max-width: 150px;
+    max-height: 230px;
+  }
+
+  .seasonal-modal-content {
+    padding: 1.5rem;
+  }
+
+  .seasonal-modal .shopify-button-wrapper,
+  .seasonal-modal .shopify-button-wrapper .shopify-buy__btn {
+    width: 100%;
   }
 
   .hero-carousel,

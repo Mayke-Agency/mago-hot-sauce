@@ -8,6 +8,7 @@
   document.addEventListener("DOMContentLoaded", () => {
     initFlavorCarousel();
     initShopifyButtons();
+    initSeasonalModal();
     setupCustomCartTrigger();
     initProductImageSwaps();
     initStoreLocator();
@@ -271,6 +272,58 @@
 
   function initShopifyButtons() {
     mountShopifyButtonsWithin(document);
+  }
+
+  function initSeasonalModal() {
+    const modal = document.querySelector("[data-seasonal-modal]");
+    if (!modal) return;
+
+    const sessionKey = "mago-pumpkin-rum-modal-seen";
+    const dialog = modal.querySelector(".seasonal-modal-dialog");
+    let lastFocusedElement = null;
+
+    function closeModal() {
+      if (modal.hidden) return;
+      modal.hidden = true;
+      document.body.classList.remove("seasonal-modal-open");
+
+      try {
+        window.sessionStorage.setItem(sessionKey, "true");
+      } catch (error) {
+        // Keep the modal functional when browser storage is unavailable.
+      }
+
+      if (lastFocusedElement && typeof lastFocusedElement.focus === "function") {
+        lastFocusedElement.focus();
+      }
+    }
+
+    function openModal() {
+      lastFocusedElement = document.activeElement;
+      modal.hidden = false;
+      document.body.classList.add("seasonal-modal-open");
+      dialog.focus();
+    }
+
+    try {
+      if (window.sessionStorage.getItem(sessionKey)) return;
+    } catch (error) {
+      // Show the announcement when browser storage is unavailable.
+    }
+
+    modal.querySelectorAll("[data-seasonal-modal-close]").forEach((control) => {
+      control.addEventListener("click", closeModal);
+    });
+
+    modal.addEventListener("click", (event) => {
+      if (event.target.closest(".shopify-buy__btn")) closeModal();
+    });
+
+    document.addEventListener("keydown", (event) => {
+      if (event.key === "Escape" && !modal.hidden) closeModal();
+    });
+
+    openModal();
   }
 
   function initProductImageSwaps() {
