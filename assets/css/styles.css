@@ -1468,6 +1468,11 @@ a:focus-visible {
   transform: translateY(0);
 }
 
+.shopify-button-wrapper .shopify-buy__select-icon,
+.shopify-button-wrapper .shopify-buy__option-select svg {
+  display: none !important;
+}
+
 .shopify-buy__cart-toggle {
   opacity: 0 !important;
   transform: scale(0) !important;
