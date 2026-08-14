@@ -1581,9 +1581,12 @@ body.seasonal-modal-open {
 }
 
 body.cart-open .header-cart {
-  transform: translateX(
-    calc(-1 * (var(--shopify-cart-width, 380px) + 0.01rem))
-  );
+  position: fixed;
+  z-index: 101;
+  top: 0.75rem;
+  right: auto;
+  left: max(0.5rem, calc(var(--shopify-cart-left, 100vw) - 4rem));
+  transform: none;
 }
 
 .shopify-button-hidden {
@@ -2047,7 +2050,7 @@ body.cart-open .header-cart {
 
   body.cart-open .header-cart {
     top: 1rem;
-    right: 1rem;
+    right: auto;
   }
 }
 

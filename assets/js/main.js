@@ -528,6 +528,8 @@
         window.getComputedStyle(cartFrame).display !== "none" &&
         window.getComputedStyle(cartFrame).visibility !== "hidden";
 
+      if (cartIsVisible) updateCartOffset();
+
       if (!cartIsVisible) {
         document.body.classList.remove("cart-open");
         window.clearInterval(cartStateWatcher);
@@ -597,12 +599,15 @@
     const cartFrame = document.querySelector(".shopify-buy-frame--cart");
     if (!cartFrame) return;
 
-    const width = cartFrame.getBoundingClientRect().width || 380;
+    const rect = cartFrame.getBoundingClientRect();
+    const width = rect.width || 380;
+    const left = rect.left || window.innerWidth - width;
 
     document.documentElement.style.setProperty(
       "--shopify-cart-width",
       `${width}px`,
     );
+    document.documentElement.style.setProperty("--shopify-cart-left", `${left}px`);
   }
 
   function initStoreLocator() {
