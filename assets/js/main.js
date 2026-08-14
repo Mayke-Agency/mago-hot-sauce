@@ -375,16 +375,26 @@
         }, 350);
       });
 
-      swap.addEventListener("click", () => {
-        if (suppressClick) return;
+      swap.addEventListener("click", (event) => {
         if (!window.matchMedia("(hover: none), (pointer: coarse)").matches) {
           return;
         }
+
+        event.preventDefault();
+        if (suppressClick) return;
         toggleImage();
       });
 
       swap.addEventListener("keydown", (event) => {
         if (event.key !== "Enter" && event.key !== " ") return;
+
+        if (
+          swap.tagName === "A" &&
+          !window.matchMedia("(hover: none), (pointer: coarse)").matches
+        ) {
+          return;
+        }
+
         event.preventDefault();
         toggleImage();
       });
