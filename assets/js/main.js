@@ -9,6 +9,7 @@
     initFlavorCarousel();
     initShopifyButtons();
     setupCustomCartTrigger();
+    initProductImageSwaps();
     initStoreLocator();
     initNewsletterForm();
     initMobileNav();
@@ -270,6 +271,71 @@
 
   function initShopifyButtons() {
     mountShopifyButtonsWithin(document);
+  }
+
+  function initProductImageSwaps() {
+    document.querySelectorAll("[data-product-image-swap]").forEach((swap) => {
+      const indicator = swap.querySelector(".product-image-indicator");
+      let touchStartX = 0;
+      let touchStartY = 0;
+      let suppressClick = false;
+
+      function setBackVisible(showBack) {
+        swap.classList.toggle("is-back", showBack);
+        swap.setAttribute("aria-pressed", String(showBack));
+        swap.setAttribute(
+          "aria-label",
+          showBack
+            ? "Show front of Mago Black Short Sleeve T-Shirt"
+            : "Show back of Mago Black Short Sleeve T-Shirt",
+        );
+
+        if (indicator) {
+          indicator.children[0].classList.toggle("is-active", !showBack);
+          indicator.children[1].classList.toggle("is-active", showBack);
+        }
+      }
+
+      function toggleImage() {
+        setBackVisible(!swap.classList.contains("is-back"));
+      }
+
+      swap.addEventListener("touchstart", (event) => {
+        const touch = event.changedTouches[0];
+        touchStartX = touch.clientX;
+        touchStartY = touch.clientY;
+      });
+
+      swap.addEventListener("touchend", (event) => {
+        const touch = event.changedTouches[0];
+        const deltaX = touch.clientX - touchStartX;
+        const deltaY = touch.clientY - touchStartY;
+
+        if (Math.abs(deltaX) < 40 || Math.abs(deltaX) <= Math.abs(deltaY)) {
+          return;
+        }
+
+        setBackVisible(deltaX < 0);
+        suppressClick = true;
+        window.setTimeout(() => {
+          suppressClick = false;
+        }, 350);
+      });
+
+      swap.addEventListener("click", () => {
+        if (suppressClick) return;
+        if (!window.matchMedia("(hover: none), (pointer: coarse)").matches) {
+          return;
+        }
+        toggleImage();
+      });
+
+      swap.addEventListener("keydown", (event) => {
+        if (event.key !== "Enter" && event.key !== " ") return;
+        event.preventDefault();
+        toggleImage();
+      });
+    });
   }
 
   function mountShopifyButtonsWithin(root) {
