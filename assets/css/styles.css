@@ -1467,7 +1467,7 @@ body.seasonal-modal-open {
   width: min(100%, 760px);
   max-height: calc(100vh - 2rem);
   overflow: auto;
-  background: var(--color-cream);
+  background: var(--color-white);
   box-shadow: var(--shadow-lg);
 }
 
@@ -1514,7 +1514,7 @@ body.seasonal-modal-open {
   color: var(--color-ink);
   font-size: 2rem;
   line-height: 1;
-  background: var(--color-cream);
+  background: var(--color-white);
   border: 1px solid rgba(28, 27, 24, 0.18);
   border-radius: 50%;
   cursor: pointer;
