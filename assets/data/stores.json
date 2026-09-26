@@ -605,5 +605,17 @@
     "phone": "",
     "products": [],
     "type": "restaurant"
+  },
+  {
+    "name": "Wigz",
+    "address": "1816 S Coast Hwy",
+    "city": "Laguna Beach",
+    "state": "CA",
+    "zip": "92651",
+    "lat": null,
+    "lng": null,
+    "phone": "(949) 235-8785",
+    "products": [],
+    "type": "restaurant"
   }
 ]
