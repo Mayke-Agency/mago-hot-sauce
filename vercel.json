@@ -15,6 +15,10 @@
     },
     { "source": "/shop/ghost-pepper", "destination": "/ghost-pepper.html" },
     { "source": "/shop/roasted-verde", "destination": "/roasted-verde.html" },
+    {
+      "source": "/roasted-habanero-32oz",
+      "destination": "/roasted-habanero-32oz.html"
+    },
     { "source": "/pumpkin-rum", "destination": "/pumpkin-rum.html" },
     {
       "source": "/black-short-sleeve-t-shirt",
