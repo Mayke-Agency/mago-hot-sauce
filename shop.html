@@ -36,6 +36,7 @@
 
     <link rel="icon" href="/assets/icons/mago-favicon.svg" />
     <link rel="stylesheet" href="assets/css/styles.css" />
+    <script src="assets/js/seasonal-config.js"></script>
     <script>
       window.MAGO_SHOPIFY_CONFIG = {
         domain: "bsnbpg-vs.myshopify.com",
@@ -85,6 +86,14 @@
           },
           "black-tshirt-shop": {
             id: "10442171252868",
+            buttonText: "Add to Cart",
+          },
+          "four-bottle-box-shop": {
+            id: "15475051659396",
+            buttonText: "Add to Cart",
+          },
+          "five-bottle-box-shop": {
+            id: "15475051724932",
             buttonText: "Add to Cart",
           },
 
@@ -205,7 +214,7 @@
             <article class="product-card">
               <a class="product-card-image" href="/roasted-habanero">
                 <img
-                  src="assets/images/flavors/roasted-hab.webp"
+                  src="assets/images/flavors/individual/roasted-habanero.png"
                   alt="Bottle of Mago Roasted Habanero hot sauce"
                   width="320"
                   height="640"
@@ -231,7 +240,7 @@
             <article class="product-card">
               <a class="product-card-image" href="/pineapple-habanero">
                 <img
-                  src="assets/images/flavors/pine-hab.webp"
+                  src="assets/images/flavors/individual/pineapple-habanero.png"
                   alt="Bottle of Mago Pineapple Habanero hot sauce"
                   width="320"
                   height="640"
@@ -259,7 +268,7 @@
             <article class="product-card">
               <a class="product-card-image" href="/ghost-pepper">
                 <img
-                  src="assets/images/flavors/ghost-pep.webp"
+                  src="assets/images/flavors/individual/ghost-pepper.png"
                   alt="Bottle of Mago Ghost Pepper hot sauce"
                   width="320"
                   height="640"
@@ -285,7 +294,7 @@
             <article class="product-card">
               <a class="product-card-image" href="/roasted-verde">
                 <img
-                  src="assets/images/flavors/roasted-verd.webp"
+                  src="assets/images/flavors/individual/roasted-verde.png"
                   alt="Bottle of Mago Roasted Verde hot sauce"
                   width="320"
                   height="640"
@@ -311,7 +320,7 @@
             <article class="product-card">
               <a class="product-card-image" href="/pumpkin-rum">
                 <img
-                  src="assets/images/flavors/mago-pumpkin.png"
+                  src="assets/images/flavors/individual/pumpkin-rum.png"
                   alt="Bottle of Mago Pumpkin + Rum hot sauce"
                   width="1024"
                   height="1536"
@@ -397,6 +406,32 @@
                   data-shopify-button="buy"
                   aria-label="Add Black Short Sleeve T-Shirt to cart"
                 ></div>
+              </div>
+            </article>
+
+            <article class="product-card gift-product-card" id="gift-boxes">
+              <a class="product-card-image" href="/taste-of-spicy-magic-4">
+                <img src="assets/images/gift-boxes/four-flavor-lineup.png" alt="Mago Roasted Habanero, Pineapple Habanero, Ghost Pepper, and Roasted Verde bottles lined up together" width="1536" height="1024" loading="lazy" />
+              </a>
+              <div class="product-card-body">
+                <p class="product-heat">Available Year-Round</p>
+                <h2><a href="/taste-of-spicy-magic-4">Taste of Spicy Magic — 4 Bottle Gift Box</a></h2>
+                <p>A thoughtful tasting set with four signature Mago flavors, ready to share.</p>
+                <p class="gift-price-placeholder">$48.00</p>
+                <div class="shopify-button-wrapper" data-shopify-product="four-bottle-box-shop" data-shopify-button="buy" aria-label="Add the 4 Bottle Gift Box to cart"></div>
+              </div>
+            </article>
+
+            <article class="product-card gift-product-card" data-seasonal-visibility="fiveBottle" hidden>
+              <a class="product-card-image" href="/taste-of-spicy-magic-5">
+                <img src="assets/images/gift-boxes/five-flavor-lineup.png" alt="Mago Roasted Habanero, Pineapple Habanero, Ghost Pepper, Roasted Verde, and Pumpkin + Rum bottles lined up together" width="1536" height="1024" loading="lazy" />
+              </a>
+              <div class="product-card-body">
+                <p class="product-heat gift-limited-label">Limited Edition</p>
+                <h2><a href="/taste-of-spicy-magic-5">Taste of Spicy Magic — 5 Bottle Gift Box</a></h2>
+                <p>A seasonal collection with more spicy magic to share.</p>
+                <p class="gift-price-placeholder">$60.00</p>
+                <div class="shopify-button-wrapper" data-shopify-product="five-bottle-box-shop" data-shopify-button="buy" aria-label="Add the 5 Bottle Gift Box to cart"></div>
               </div>
             </article>
           </div>

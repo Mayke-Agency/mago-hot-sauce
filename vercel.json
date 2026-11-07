@@ -4,6 +4,14 @@
     { "source": "/about", "destination": "/about.html" },
     { "source": "/shop", "destination": "/shop.html" },
     { "source": "/store-locator", "destination": "/store-locator.html" },
+    {
+      "source": "/taste-of-spicy-magic-4",
+      "destination": "/taste-of-spicy-magic-4.html"
+    },
+    {
+      "source": "/taste-of-spicy-magic-5",
+      "destination": "/taste-of-spicy-magic-5.html"
+    },
 
     {
       "source": "/shop/roasted-habanero",

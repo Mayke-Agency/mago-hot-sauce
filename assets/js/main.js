@@ -9,6 +9,7 @@
     initFlavorCarousel();
     initShopifyButtons();
     initSeasonalModal();
+    initSeasonalVisibility();
     setupCustomCartTrigger();
     initProductImageSwaps();
     initStoreLocator();
@@ -27,7 +28,7 @@
       key: "roasted-habanero",
       name: "Roasted Habanero",
       href: "/roasted-habanero",
-      image: "/assets/images/flavors/roasted-hab.webp",
+      image: "/assets/images/flavors/individual/roasted-habanero.png",
       imageAlt: "Bottle of Mago Roasted Habanero hot sauce",
       kicker: "Featured Flavor",
       description:
@@ -39,7 +40,7 @@
       key: "pineapple-habanero",
       name: "Pineapple Habanero",
       href: "/pineapple-habanero",
-      image: "/assets/images/flavors/pine-hab.webp",
+      image: "/assets/images/flavors/individual/pineapple-habanero.png",
       imageAlt: "Bottle of Mago Pineapple Habanero hot sauce",
       kicker: "Featured Flavor",
       description:
@@ -51,7 +52,7 @@
       key: "ghost-pepper",
       name: "Ghost Pepper",
       href: "/ghost-pepper",
-      image: "/assets/images/flavors/ghost-pep.webp",
+      image: "/assets/images/flavors/individual/ghost-pepper.png",
       imageAlt: "Bottle of Mago Ghost Pepper hot sauce",
       kicker: "Featured Flavor",
       description:
@@ -63,7 +64,7 @@
       key: "roasted-verde",
       name: "Roasted Verde",
       href: "/roasted-verde",
-      image: "/assets/images/flavors/roasted-verd.webp",
+      image: "/assets/images/flavors/individual/roasted-verde.png",
       imageAlt: "Bottle of Mago Roasted Verde hot sauce",
       kicker: "Featured Flavor",
       description:
@@ -272,6 +273,76 @@
 
   function initShopifyButtons() {
     mountShopifyButtonsWithin(document);
+  }
+
+  function initSeasonalVisibility() {
+    const config = window.MAGO_SEASONAL_CONFIG;
+    if (!config) return;
+
+    const today = getPacificDateKey();
+    const monthDay = today.slice(5);
+    const currentYear = Number(today.slice(0, 4));
+    const fiveBottle = config.fiveBottle;
+    const fiveBottleAvailable =
+      currentYear >= fiveBottle.availableFromYear &&
+      monthDay >= fiveBottle.starts &&
+      monthDay <= fiveBottle.ends;
+    const returnYear =
+      currentYear < fiveBottle.availableFromYear
+        ? fiveBottle.availableFromYear
+        : monthDay < fiveBottle.starts
+          ? currentYear
+          : currentYear + 1;
+
+    document
+      .querySelectorAll('[data-seasonal-visibility="fiveBottle"]')
+      .forEach((element) => {
+        element.hidden = !fiveBottleAvailable;
+      });
+
+    document.querySelectorAll("[data-seasonal-off-season]").forEach((element) => {
+      element.hidden = fiveBottleAvailable;
+      element.querySelector("[data-return-date]")?.replaceChildren(
+        document.createTextNode(
+          `The five bottle gift box returns ${fiveBottle.returnMonth} ${returnYear}.`,
+        ),
+      );
+    });
+
+    document.querySelectorAll("[data-complimentary-gift]").forEach((element) => {
+      element.hidden = !config.complimentaryGift.enabled;
+      const heading = element.querySelector("[data-gift-heading]");
+      const message = element.querySelector("[data-gift-message]");
+      if (heading) heading.textContent = config.complimentaryGift.heading;
+      if (message) message.textContent = config.complimentaryGift.message;
+    });
+
+    const promotion = config.blackFriday;
+    if (today < promotion.starts || today >= promotion.endsExclusive) return;
+
+    const header = document.querySelector(".site-header");
+    if (!header || document.querySelector("[data-black-friday-banner]")) return;
+
+    const banner = document.createElement("aside");
+    banner.className = "black-friday-banner";
+    banner.dataset.blackFridayBanner = "";
+    banner.setAttribute("aria-label", "Black Friday announcement");
+    banner.innerHTML = `
+      <p>${escapeHtml(promotion.announcement)}</p>
+      <a href="/shop#gift-boxes">${escapeHtml(promotion.cta)}</a>
+    `;
+    header.before(banner);
+  }
+
+  function getPacificDateKey(date = new Date()) {
+    const parts = new Intl.DateTimeFormat("en-US", {
+      timeZone: "America/Los_Angeles",
+      year: "numeric",
+      month: "2-digit",
+      day: "2-digit",
+    }).formatToParts(date);
+    const values = Object.fromEntries(parts.map(({ type, value }) => [type, value]));
+    return `${values.year}-${values.month}-${values.day}`;
   }
 
   function initSeasonalModal() {
