@@ -617,5 +617,41 @@
     "phone": "(949) 235-8785",
     "products": [],
     "type": "retail"
+  },
+  {
+    "name": "Scarlet Fox",
+    "address": "ScarletFoxSF.com",
+    "city": "San Francisco",
+    "state": "CA",
+    "zip": "",
+    "lat": null,
+    "lng": null,
+    "phone": "",
+    "products": [],
+    "type": "retail"
+  },
+  {
+    "name": "Casa Laguna Hotel and Spa",
+    "address": "Address TODO",
+    "city": "Laguna Beach",
+    "state": "CA",
+    "zip": "",
+    "lat": null,
+    "lng": null,
+    "phone": "",
+    "products": [],
+    "type": "retail"
+  },
+  {
+    "name": "Penguin Cafe",
+    "address": "Address TODO",
+    "city": "Laguna Beach",
+    "state": "CA",
+    "zip": "",
+    "lat": null,
+    "lng": null,
+    "phone": "",
+    "products": [],
+    "type": "restaurant"
   }
 ]
