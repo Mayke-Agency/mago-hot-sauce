@@ -820,6 +820,11 @@
             ${escapeHtml(store.zip || "")}
           </p>
           ${
+            store.website
+              ? `<p><a href="${escapeHtml(store.website)}" target="_blank" rel="noopener noreferrer">${escapeHtml(store.website.replace(/^https?:\/\//, ""))}</a></p>`
+              : ""
+          }
+          ${
             products.length
               ? `<p class="store-products">${products.map(escapeHtml).join(", ")}</p>`
               : ""
