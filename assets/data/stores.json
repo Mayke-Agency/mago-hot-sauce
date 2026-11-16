@@ -620,11 +620,10 @@
   },
   {
     "name": "Scarlet Fox",
-    "address": "",
-    "website": "https://ScarletFoxSF.com",
+    "address": "1690 Hayes St",
     "city": "San Francisco",
     "state": "CA",
-    "zip": "",
+    "zip": "94117",
     "lat": null,
     "lng": null,
     "phone": "",
